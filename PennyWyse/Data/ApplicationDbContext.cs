@@ -49,8 +49,9 @@ namespace PennyWyse.Data
                         Id = 1,
                         Name = "Music City Marathon",
                         Price = 50,
-                        StartDate = (2019, 04, 27)
-                        LegalAge = True
+                        StartDate = ("2019/04/27"),
+                        LegalAge = true,
+                        FamilyEvent = true,
                        
                         [Display(Name = "Legal Age")]
                         public bool LegalAge { get; set; }
