@@ -35,7 +35,7 @@ namespace PennyWyse.Models
         [Display(Name = "Event Type")]
         public string EventType { get; set; }
         [Display(Name = "Creator")]
-        public int CreatorId { get; set; }
+        public int? CreatorId { get; set; }
 
 
 
