@@ -67,11 +67,11 @@ namespace PennyWyse.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
-            [Display(Name = "Family Event")]
+            [Display(Name = "Are you looking for family events?")]
             public bool Family { get; set; }
 
             [Required]
-            [Display(Name = "Legal Age")]
+            [Display(Name = "Are you looking for 21 and over events?")]
             public bool LegalAge { get; set; }
          
             [Display(Name = "City")]

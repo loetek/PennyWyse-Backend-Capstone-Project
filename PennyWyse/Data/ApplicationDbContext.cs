@@ -15,13 +15,15 @@ namespace PennyWyse.Data
             public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
             
-            public DbSet<User> Users { get; set; }
+           
             public DbSet<Event> Events { get; set; }
 
             protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
-                // Create a new user for Identity Framework
-                User user = new User
+                base.OnModelCreating(modelBuilder);
+
+            // Create a new user for Identity Framework
+            User user = new User
                 {
                     FirstName = "admin",
                     LastName = "admin",
@@ -40,20 +42,20 @@ namespace PennyWyse.Data
                     SecurityStamp = Guid.NewGuid().ToString("D")
                 };
                 var passwordHash = new PasswordHasher<User>();
-                user.PasswordHash = passwordHash.HashPassword(user, "$ecret01");
+                user.PasswordHash = passwordHash.HashPassword(user, "$ecreT01");
                 modelBuilder.Entity<User>().HasData(user);
 
                 // Create two cohorts
-                modelBuilder.Entity<User>().HasData(
+                modelBuilder.Entity<Event>().HasData(
                     new Event()
                     {
                         Id = 1,
                         Name = "Music City Marathon",
                         Price = 50,
-                        StartDate = ("2019/04/27"),
+                        StartDate = DateTime.Parse("2019/04/27"),
                         LegalAge = false,
                         FamilyEvent = true,
-                        Description = "Run Rock 'n' Roll Nashville Marathon, Half Marathon, 5k, and KiDS ROCK | The Rock 'n' Roll Nashville ... Join us in celebrating 20 years running in Music City!"
+                        Description = "Run Rock 'n' Roll Nashville Marathon, Half Marathon, 5k, and KiDS ROCK | The Rock 'n' Roll Nashville ... Join us in celebrating 20 years running in Music City!",
                         InfoURL = "https://www.runrocknroll.com/nashville/",
                         ImageURL = "https://pridepublishinggroup.com/pride/wp-content/uploads/2019/01/st-jude-race.jpg",
                         City = "Nashville",
@@ -67,7 +69,7 @@ namespace PennyWyse.Data
                         Id = 2,
                         Name = "Nashville Hot Air Balloon Festival",
                         Price = 300,
-                        StartDate = ("2019/06/22"),
+                        StartDate = DateTime.Parse("2019/06/22"),
                         LegalAge = false,
                         FamilyEvent = true,
                         Description = "Bring the entire family and come enjoy Nashville's BEST Hot Air Balloon Festival! Is there any better way to kick off summer Tennessee ? !Held on a large field just minutes from downtown join dozens of vendors chefs local musicians artists cooking demonstrations pop - up art galleriesPLUS food and alcohol tasting partners.",
@@ -84,7 +86,7 @@ namespace PennyWyse.Data
                         Id = 3,
                         Name = "Nashville Rosé Festival ",
                         Price = 40,
-                        StartDate = ("2019/05/18"),
+                        StartDate = DateTime.Parse("2019/05/18"),
                         LegalAge = true,
                         FamilyEvent = false,
                         Description = "Don’t miss the second-annual Nashville Rosé Festival! One of the city’s most talked- and instagrammed-about events last year, we are thrilled celebrate our second year in East Nashville’s East Park and have another chance to support one of our favorite charities, the Tennessee Breast Cancer Coalition. ",
@@ -97,25 +99,24 @@ namespace PennyWyse.Data
                     }
                 );
 
-                // Create two students
-                modelBuilder.Entity<Student>().HasData(
-                    new Student()
-                    {
-                        StudentId = 1,
-                        FirstName = "Jakob"
+                //modelBuilder.Entity<Student>().HasData(
+                //    new Student()
+                //    {
+                //        StudentId = 1,
+                //        FirstName = "Jakob"
         
-                        LastName = "Wildman",
-                        CohortId = 2
-                    },
-                    new Student()
-                    {
-                        StudentId = 2,
-                        FirstName = "Susan"
+                //        LastName = "Wildman",
+                //        CohortId = 2
+                //    },
+                //    new Student()
+                //    {
+                //        StudentId = 2,
+                //        FirstName = "Susan"
         
-                        LastName = "MacAfee",
-                        CohortId = 1
-                    }
-                );
+                //        LastName = "MacAfee",
+                //        CohortId = 1
+                //    }
+                //);
             }
         }
 }
