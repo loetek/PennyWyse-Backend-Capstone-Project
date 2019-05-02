@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PennyWyse.Models.ViewModels
+namespace PennyWyse.Models
 {
-    public class UserActivity
+    public class UserEvents
     {
-
-
     }
 }

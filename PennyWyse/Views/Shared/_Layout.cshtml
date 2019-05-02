@@ -1,4 +1,10 @@
 ﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Identity
+@using PennyWyse.Models
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,10 +19,13 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
+@* JD--- Validating user before sharing *@
+@if (SignInManager.IsSignedIn(User))
+{
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -49,14 +58,19 @@
             @RenderBody()
         </main>
     </div>
+    @*background image*@
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - PennyWyse - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
 
-    <environment include="Development">
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2019 - PennyWyse - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+
+
+
+<environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     </environment>
@@ -78,4 +92,26 @@
 
     @RenderSection("Scripts", required: false)
 </body>
+
+}
+else
+{
+    <div class="container">
+        
+      
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+         
+        </main>
+        
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    </div>
+    
+}
 </html>

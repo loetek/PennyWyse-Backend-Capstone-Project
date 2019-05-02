@@ -70,7 +70,7 @@ namespace PennyWyse
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Events}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
