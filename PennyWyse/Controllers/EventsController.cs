@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,14 +14,23 @@ namespace PennyWyse.Controllers
 {
     public class EventsController : Controller
     {
+        //setting private reference to the I.D.F usermanager
+        private readonly UserManager<User> _userManager;
+
         private readonly ApplicationDbContext _context;
 
-        public EventsController(ApplicationDbContext context)
+        //Getting the current user in the system (whoever is logged in)
+        public Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+        public EventsController(ApplicationDbContext context,
+            UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Events
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Events.ToListAsync());
