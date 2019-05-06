@@ -60,19 +60,13 @@ body {
     -------------------------------------------------------
 */
 
-/*html,
-body {
-    height: 100%;
-    background-color: #333;
-}*/
-
 /*
 
     Login Form
     ==================
 */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 
 .welcome{
     text-align:center;

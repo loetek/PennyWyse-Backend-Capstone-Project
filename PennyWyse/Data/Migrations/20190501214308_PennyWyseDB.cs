@@ -125,5 +125,10 @@ namespace PennyWyse.Data.Migrations
                 name: "State",
                 table: "AspNetUsers");
         }
+
+        public static implicit operator PennyWyseDB(ApplicationDbContext v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
