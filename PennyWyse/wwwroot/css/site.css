@@ -11,6 +11,7 @@ a.navbar-brand {
 -------------------------------------------------- */
 html {
   font-size: 14px;
+    font: greenyellow;
 }
 @media (min-width: 768px) {
   html {
@@ -46,11 +47,116 @@ body {
   margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/*JD's past this point
+    -------------------------------------------------------
+*/
+
+/*html,
+body {
+    height: 100%;
+    background-color: #333;
+}*/
+
+/*
+
+    Login Form
+    ==================
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.welcome{
+    text-align:center;
+    font-family:Roboto;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: -webkit-radial-gradient(50%, gainsboro, lightgrey);
+    background-position: center;
+    background-size: cover;
+}
+.formContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15%;
+    background-color: #FAF9F8;
+    box-shadow: 2px 2px 4px gray;
+    padding-top: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    border-radius: 21px;
+}
+.emailInput, 
+.passwordInput{ 
+    display: block;
+    background: none;
+    padding: 0.175rem 0.175rem 0.0875rem;
+    font-size: 1.4rem;
+    border-width: 0;
+    border-color: transparent;
+    line-height: 1.9;
+    width: 100%;
+    color: #ccc;
+    transition: all 0.43s ease;
+    box-shadow: none;
+    border-bottom:2px solid gray;
+    font-family:Roboto;
+}
+#account {
+    justify-content:center;
+    width:200%;
+    margin-left:-100px;
+}
+.logInButton {
+    margin: 0 auto;
+    width: 50%;
+    background-color: black;
+    border: 0;
+    padding: 10px 0 10px 0;
+    font-family: Roboto;
+    font-size: 20px;
+}
+.regButton {
+    padding: 10px 0 10px 0;
+    width: 50%;
+    background-color: #3C3B45;
+    border: 0;
+    font-family: Roboto;
+    font-size:20px;
+}
+.regButton > a {
+    text-decoration: none;
+    color: white;
+}
+.headTitle {
+    color: #3C3B45;
+}
+.Forgot > a {
+    text-decoration: none;
+    color: #3C3B45;
+}
+/*
+
+    Landing page
+    ==================
+*/
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

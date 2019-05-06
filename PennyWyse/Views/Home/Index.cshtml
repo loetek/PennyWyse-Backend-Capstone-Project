@@ -2,7 +2,34 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <h1 class="font-weight-light">How much?</h1>
+                
+<!--Input box for the dollar amount-->
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> $</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    
+                </div>
+            <button type="button" class="btn btn-primary btn-lg"> submit </button>                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Content -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="font-weight-light">What is this?</h2>
+        <p> PennyWyse is an app that focuses on the bottom dollar. Only enter the amount that you would want to spend.</p>
+    </div>
+</section>
+    
+    
+
