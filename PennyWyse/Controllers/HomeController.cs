@@ -26,7 +26,7 @@ namespace PennyWyse.Controllers
                 ViewData["PriceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
                 ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
                 // Cannot load data from eventsDB?
-                var events = from e in _context.Events
+                //var events = from e in _context.Events
                     select e;
                 switch (sortOrder)
                 {
