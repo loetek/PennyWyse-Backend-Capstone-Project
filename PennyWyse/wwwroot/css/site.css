@@ -147,9 +147,9 @@ body {
     ==================
 */
 .masthead {
-    height: 100vh;
+    height: 85vh;
     min-height: 500px;
-    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    /*background-image: url('https://backgroundtown.com/content/images/thumbs/0002610_classic-texture-dark-cool-gray.jpeg');*/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
