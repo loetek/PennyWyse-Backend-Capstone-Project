@@ -27,6 +27,7 @@ namespace PennyWyse.Models
         public string City { get; set; }
         [Display(Name = "State")]
         public string State { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
 
 
         [Display(Name = "User's Name")]

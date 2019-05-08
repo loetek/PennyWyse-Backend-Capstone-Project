@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PennyWyse.Data;
 
-namespace PennyWyse.Data.Migrations
+namespace PennyWyse.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -164,7 +164,17 @@ namespace PennyWyse.Data.Migrations
 
                     b.Property<string>("State");
 
+                    b.Property<string>("UserEventId");
+
+                    b.Property<int>("UserId");
+
+                    b.Property<string>("UserId1");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserEventId");
+
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Events");
 
@@ -182,7 +192,8 @@ namespace PennyWyse.Data.Migrations
                             Name = "Music City Marathon",
                             Price = 50,
                             StartDate = new DateTime(2019, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            State = "Tennessee"
+                            State = "Tennessee",
+                            UserId = 0
                         },
                         new
                         {
@@ -197,7 +208,8 @@ namespace PennyWyse.Data.Migrations
                             Name = "Nashville Hot Air Balloon Festival",
                             Price = 300,
                             StartDate = new DateTime(2019, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            State = "Tennessee"
+                            State = "Tennessee",
+                            UserId = 0
                         },
                         new
                         {
@@ -212,7 +224,8 @@ namespace PennyWyse.Data.Migrations
                             Name = "Nashville Rosé Festival ",
                             Price = 40,
                             StartDate = new DateTime(2019, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            State = "Tennessee"
+                            State = "Tennessee",
+                            UserId = 0
                         });
                 });
 
@@ -285,10 +298,10 @@ namespace PennyWyse.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4f867d1a-81e4-4ca0-8c72-bcfb4bf32127",
+                            Id = "1e4f8c52-db0e-4a3b-9675-57344a1021fa",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "843a2c82-4ff3-4308-b3ae-c8852f50fb35",
+                            ConcurrencyStamp = "18d1cf9f-4dec-459c-90f7-7228a11cf06d",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             Family = false,
@@ -298,14 +311,104 @@ namespace PennyWyse.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECRpGhqtTAJqEbGg0Na+Twd+W9htk8e5qiGuaTX7hWpipXHFAVupHBApQpIjPeIDqA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOeVd4aZUziLf4/4PdA6WVecYZQbEErWyWo5OtouLlvVR3VrU2d4sBGleB75uwR9Bw==",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "7dc71d1f-d907-4852-b84f-d4aad0d2782b",
+                            SecurityStamp = "218f4990-948d-4e98-a786-fb73163957b8",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
+                        },
+                        new
+                        {
+                            Id = "1f527ba4-65c9-4e7a-ba4c-cec50460f70e",
+                            AccessFailedCount = 0,
+                            City = "Nashville",
+                            ConcurrencyStamp = "becfd76f-295d-418e-8ba2-cc59f0d66e40",
+                            Email = "jd@jd.com",
+                            EmailConfirmed = true,
+                            Family = true,
+                            FirstName = "JD",
+                            LastName = "Wheeler",
+                            LegalAge = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "JD@JD.COM",
+                            NormalizedUserName = "JD@JD.COM",
+                            PhoneNumberConfirmed = false,
+                            ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
+                            SecurityStamp = "fa8b31c0-bc89-4e9a-bd92-231af21e2ad6",
+                            State = "Tennessee",
+                            TwoFactorEnabled = false,
+                            UserName = "jd@jd.com"
+                        },
+                        new
+                        {
+                            Id = "928f4999-521b-4c83-bd97-5f215bcbc40d",
+                            AccessFailedCount = 0,
+                            City = "Nashville",
+                            ConcurrencyStamp = "27a01b99-b21f-461c-8ee6-69833b87d9bd",
+                            Email = "joey@joey.com",
+                            EmailConfirmed = true,
+                            Family = false,
+                            FirstName = "Joey",
+                            LastName = "B",
+                            LegalAge = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "JOEY@JOEY.COM",
+                            NormalizedUserName = "JOEY@JOEY.COM",
+                            PhoneNumberConfirmed = false,
+                            ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
+                            SecurityStamp = "21369d3f-aa89-4f06-98f0-a56250a0305c",
+                            State = "Tennessee",
+                            TwoFactorEnabled = false,
+                            UserName = "joey@joey.com"
                         });
+                });
+
+            modelBuilder.Entity("PennyWyse.Models.UserEvent", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("ConcurrencyStamp");
+
+                    b.Property<string>("Email");
+
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<int?>("EventId");
+
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("NormalizedEmail");
+
+                    b.Property<string>("NormalizedUserName");
+
+                    b.Property<string>("PasswordHash");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserEvents");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -351,6 +454,28 @@ namespace PennyWyse.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PennyWyse.Models.Event", b =>
+                {
+                    b.HasOne("PennyWyse.Models.UserEvent")
+                        .WithMany("Events")
+                        .HasForeignKey("UserEventId");
+
+                    b.HasOne("PennyWyse.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
+                });
+
+            modelBuilder.Entity("PennyWyse.Models.UserEvent", b =>
+                {
+                    b.HasOne("PennyWyse.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventId");
+
+                    b.HasOne("PennyWyse.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

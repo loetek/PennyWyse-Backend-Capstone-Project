@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PennyWyse.Data;
-using PennyWyse.Data.Migrations;
 using PennyWyse.Models;
 
 namespace PennyWyse.Controllers

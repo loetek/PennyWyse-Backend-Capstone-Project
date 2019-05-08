@@ -37,6 +37,8 @@ namespace PennyWyse.Models
         [Display(Name = "Creator")]
         public int? CreatorId { get; set; }
 
+        public int UserId { get; set; }
+        public User User { get; set; }
 
 
 
