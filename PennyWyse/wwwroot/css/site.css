@@ -60,19 +60,13 @@ body {
     -------------------------------------------------------
 */
 
-/*html,
-body {
-    height: 100%;
-    background-color: #333;
-}*/
-
 /*
 
     Login Form
     ==================
 */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 
 .welcome{
     text-align:center;
@@ -153,10 +147,16 @@ body {
     ==================
 */
 .masthead {
-    height: 100vh;
+    height: 85vh;
     min-height: 500px;
-    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    /*background-image: url('https://backgroundtown.com/content/images/thumbs/0002610_classic-texture-dark-cool-gray.jpeg');*/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.navLogo {
+    max-width: 5%;
+    height: auto;
+    border-radius: 12px;
 }

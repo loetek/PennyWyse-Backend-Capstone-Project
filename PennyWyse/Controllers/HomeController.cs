@@ -4,31 +4,47 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Policy;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PennyWyse.Data.Migrations;
+using Microsoft.EntityFrameworkCore;
+using PennyWyse.Data;
 using PennyWyse.Models;
 
 namespace PennyWyse.Controllers
 {
     public class HomeController : Controller
     {
-        //Connection to DB
-        private readonly PennyWyseDB _context;
+        //setting private reference to the I.D.F usermanager
+        private readonly UserManager<User> _userManager;
 
-        public HomeController(PennyWyseDB context)
+        private readonly ApplicationDbContext _context;
+
+        //Getting the current user in the system (whoever is logged in)
+        public Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+        public HomeController(ApplicationDbContext context,
+            UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
+
         //This is a sorting method that should sort based on price and startdate. 
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
             {
                 ViewData["PriceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
                 ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
-                // Cannot load data from eventsDB?
-                //var events = from e in _context.Events
+                ViewData["CurrentFilter"] = searchString;
+            
+            var events = from e in _context.Events
                     select e;
-                switch (sortOrder)
+
+          if (!String.IsNullOrEmpty(searchString))
+                {
+                    events = events.Where(e => e.Price.ToString().Contains(searchString));
+                }
+            switch (sortOrder)
                 {
                     case "price_desc":
                         events = events.OrderByDescending(e => e.Price);

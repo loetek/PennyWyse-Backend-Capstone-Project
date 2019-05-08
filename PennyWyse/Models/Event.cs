@@ -8,7 +8,7 @@ namespace PennyWyse.Models
 {
     public class Event
     {
-        public int Id { get; set; }
+        public int EventId { get; set; }
         [Required]
         [Display(Name = "Event Name")]
         public string Name { get; set; }
@@ -37,6 +37,8 @@ namespace PennyWyse.Models
         [Display(Name = "Creator")]
         public int? CreatorId { get; set; }
 
+        public int UserId { get; set; }
+        public User User { get; set; }
 
 
 
