@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,31 +10,23 @@ using PennyWyse.Models;
 
 namespace PennyWyse.Controllers
 {
-    public class EventsController : Controller
+    public class UserEventsController : Controller
     {
-        //setting private reference to the I.D.F usermanager
-        private readonly UserManager<User> _userManager;
-
         private readonly ApplicationDbContext _context;
 
-        //Getting the current user in the system (whoever is logged in)
-        public Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
-
-        public EventsController(ApplicationDbContext context,
-            UserManager<User> userManager)
+        public UserEventsController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
-        // GET: Events
-        [Authorize]
+        // GET: UserEvents
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Events.ToListAsync());
+            var applicationDbContext = _context.UserEvents.Include(u => u.Event).Include(u => u.User);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Events/Details/5
+        // GET: UserEvents/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,39 +34,45 @@ namespace PennyWyse.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events
-                .FirstOrDefaultAsync(m => m.EventId == id);
-            if (@event == null)
+            var userEvent = await _context.UserEvents
+                .Include(u => u.Event)
+                .Include(u => u.User)
+                .FirstOrDefaultAsync(m => m.UserEventId == id);
+            if (userEvent == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            return View(userEvent);
         }
 
-        // GET: Events/Create
+        // GET: UserEvents/Create
         public IActionResult Create()
         {
+            ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name");
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
-        // POST: Events/Create
+        // POST: UserEvents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,StartDate,LegalAge,FamilyEvent,Description,InfoURL,ImageURL,City,State,EventType,CreatorId")] Event @event)
+        public async Task<IActionResult> Create([Bind("UserEventId,UserId,EventId")] UserEvent userEvent)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(@event);
+                _context.Add(userEvent);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(@event);
+            ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
+            return View(userEvent);
         }
 
-        // GET: Events/Edit/5
+        // GET: UserEvents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,22 +80,24 @@ namespace PennyWyse.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events.FindAsync(id);
-            if (@event == null)
+            var userEvent = await _context.UserEvents.FindAsync(id);
+            if (userEvent == null)
             {
                 return NotFound();
             }
-            return View(@event);
+            ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
+            return View(userEvent);
         }
 
-        // POST: Events/Edit/5
+        // POST: UserEvents/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,StartDate,LegalAge,FamilyEvent,Description,InfoURL,ImageURL,City,State,EventType,CreatorId")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("UserEventId,UserId,EventId")] UserEvent userEvent)
         {
-            if (id != @event.EventId)
+            if (id != userEvent.UserEventId)
             {
                 return NotFound();
             }
@@ -108,12 +106,12 @@ namespace PennyWyse.Controllers
             {
                 try
                 {
-                    _context.Update(@event);
+                    _context.Update(userEvent);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventExists(@event.EventId))
+                    if (!UserEventExists(userEvent.UserEventId))
                     {
                         return NotFound();
                     }
@@ -124,10 +122,12 @@ namespace PennyWyse.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(@event);
+            ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
+            return View(userEvent);
         }
 
-        // GET: Events/Delete/5
+        // GET: UserEvents/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,30 +135,32 @@ namespace PennyWyse.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events
-                .FirstOrDefaultAsync(m => m.EventId == id);
-            if (@event == null)
+            var userEvent = await _context.UserEvents
+                .Include(u => u.Event)
+                .Include(u => u.User)
+                .FirstOrDefaultAsync(m => m.UserEventId == id);
+            if (userEvent == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            return View(userEvent);
         }
 
-        // POST: Events/Delete/5
+        // POST: UserEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var @event = await _context.Events.FindAsync(id);
-            _context.Events.Remove(@event);
+            var userEvent = await _context.UserEvents.FindAsync(id);
+            _context.UserEvents.Remove(userEvent);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EventExists(int id)
+        private bool UserEventExists(int id)
         {
-            return _context.Events.Any(e => e.EventId == id);
+            return _context.UserEvents.Any(e => e.UserEventId == id);
         }
     }
 }

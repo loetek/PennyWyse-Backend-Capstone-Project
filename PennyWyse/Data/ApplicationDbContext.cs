@@ -15,7 +15,7 @@ namespace PennyWyse.Data
             public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
             
-           
+            public new DbSet<User> Users { get; set; }
             public DbSet<Event> Events { get; set; }
             public DbSet<UserEvent> UserEvents { get; set; }
 
@@ -95,7 +95,7 @@ namespace PennyWyse.Data
                 modelBuilder.Entity<Event>().HasData(
                     new Event()
                     {
-                        Id = 1,
+                        EventId = 1,
                         Name = "Music City Marathon",
                         Price = 50,
                         StartDate = DateTime.Parse("2019/04/27"),
@@ -113,7 +113,7 @@ namespace PennyWyse.Data
                     },
                     new Event()
                     {
-                        Id = 2,
+                        EventId = 2,
                         Name = "Nashville Hot Air Balloon Festival",
                         Price = 300,
                         StartDate = DateTime.Parse("2019/06/22"),
@@ -132,7 +132,7 @@ namespace PennyWyse.Data
 
                     new Event()
                     {
-                        Id = 3,
+                        EventId = 3,
                         Name = "Nashville Rosé Festival ",
                         Price = 40,
                         StartDate = DateTime.Parse("2019/05/18"),
@@ -156,7 +156,7 @@ namespace PennyWyse.Data
                      {
                         UserEventId = 1,
                         EventId = 1,
-                        UserId = 1
+                        UserId = user2.Id
 
                       },
 
@@ -164,7 +164,7 @@ namespace PennyWyse.Data
                      {
                          UserEventId = 2,
                          EventId = 2,
-                         UserId = 1
+                         UserId = user2.Id
 
                      },
 
@@ -172,7 +172,7 @@ namespace PennyWyse.Data
                      {
                          UserEventId = 3,
                          EventId = 3,
-                         UserId = 2
+                         UserId = user3.Id
 
                      }
               );

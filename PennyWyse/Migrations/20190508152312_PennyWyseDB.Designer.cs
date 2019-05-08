@@ -10,7 +10,7 @@ using PennyWyse.Data;
 namespace PennyWyse.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190507202510_PennyWyseDB")]
+    [Migration("20190508152312_PennyWyseDB")]
     partial class PennyWyseDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -137,7 +137,7 @@ namespace PennyWyse.Migrations
 
             modelBuilder.Entity("PennyWyse.Models.Event", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EventId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -166,13 +166,13 @@ namespace PennyWyse.Migrations
 
                     b.Property<string>("State");
 
-                    b.Property<string>("UserEventId");
+                    b.Property<int?>("UserEventId");
 
                     b.Property<int>("UserId");
 
                     b.Property<string>("UserId1");
 
-                    b.HasKey("Id");
+                    b.HasKey("EventId");
 
                     b.HasIndex("UserEventId");
 
@@ -183,7 +183,7 @@ namespace PennyWyse.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            EventId = 1,
                             City = "Nashville",
                             Description = "Run Rock 'n' Roll Nashville Marathon, Half Marathon, 5k, and KiDS ROCK | The Rock 'n' Roll Nashville ... Join us in celebrating 20 years running in Music City!",
                             EventType = "Sports",
@@ -199,7 +199,7 @@ namespace PennyWyse.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            EventId = 2,
                             City = "Nashville",
                             Description = "Bring the entire family and come enjoy Nashville's BEST Hot Air Balloon Festival! Is there any better way to kick off summer Tennessee ? !Held on a large field just minutes from downtown join dozens of vendors chefs local musicians artists cooking demonstrations pop - up art galleriesPLUS food and alcohol tasting partners.",
                             EventType = "Outdoor",
@@ -215,7 +215,7 @@ namespace PennyWyse.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            EventId = 3,
                             City = "Nashville",
                             Description = "Don’t miss the second-annual Nashville Rosé Festival! One of the city’s most talked- and instagrammed-about events last year, we are thrilled celebrate our second year in East Nashville’s East Park and have another chance to support one of our favorite charities, the Tennessee Breast Cancer Coalition. ",
                             EventType = "Festival",
@@ -300,10 +300,10 @@ namespace PennyWyse.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1e4f8c52-db0e-4a3b-9675-57344a1021fa",
+                            Id = "7a15488f-72e3-4073-a566-6942cb287c0b",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "18d1cf9f-4dec-459c-90f7-7228a11cf06d",
+                            ConcurrencyStamp = "1b2206bb-a74d-47d4-8082-04f5c397c5a6",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             Family = false,
@@ -313,20 +313,20 @@ namespace PennyWyse.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOeVd4aZUziLf4/4PdA6WVecYZQbEErWyWo5OtouLlvVR3VrU2d4sBGleB75uwR9Bw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN9eT1Wu7CymCnLiAv6YVDpRhY+WULZlNjgy6s+XT4wb2UtaLhPN+2eI+hiNIHOxRg==",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "218f4990-948d-4e98-a786-fb73163957b8",
+                            SecurityStamp = "3ae09ac3-342c-4aa0-a7b9-384237a30bf3",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
                         new
                         {
-                            Id = "1f527ba4-65c9-4e7a-ba4c-cec50460f70e",
+                            Id = "39066369-1abb-4572-ab0c-a106de62709a",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "becfd76f-295d-418e-8ba2-cc59f0d66e40",
+                            ConcurrencyStamp = "b9b1a8ad-4a52-4098-b113-8ca005bb0e3f",
                             Email = "jd@jd.com",
                             EmailConfirmed = true,
                             Family = true,
@@ -338,17 +338,17 @@ namespace PennyWyse.Migrations
                             NormalizedUserName = "JD@JD.COM",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "fa8b31c0-bc89-4e9a-bd92-231af21e2ad6",
+                            SecurityStamp = "919c0749-a333-45d7-b384-5798062df986",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "jd@jd.com"
                         },
                         new
                         {
-                            Id = "928f4999-521b-4c83-bd97-5f215bcbc40d",
+                            Id = "f4136036-8ac8-4000-b6a3-8cb438a1852f",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "27a01b99-b21f-461c-8ee6-69833b87d9bd",
+                            ConcurrencyStamp = "1c902aee-8635-4950-b69e-72d5ee1dc866",
                             Email = "joey@joey.com",
                             EmailConfirmed = true,
                             Family = false,
@@ -360,7 +360,7 @@ namespace PennyWyse.Migrations
                             NormalizedUserName = "JOEY@JOEY.COM",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "21369d3f-aa89-4f06-98f0-a56250a0305c",
+                            SecurityStamp = "5b73b7a2-689a-4b5c-9b9f-ebce90ad0017",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "joey@joey.com"
@@ -369,48 +369,42 @@ namespace PennyWyse.Migrations
 
             modelBuilder.Entity("PennyWyse.Models.UserEvent", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("UserEventId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AccessFailedCount");
+                    b.Property<int>("EventId");
 
-                    b.Property<string>("ConcurrencyStamp");
+                    b.Property<string>("UserId")
+                        .IsRequired();
 
-                    b.Property<string>("Email");
-
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<int?>("EventId");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("NormalizedEmail");
-
-                    b.Property<string>("NormalizedUserName");
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserId");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserEventId");
 
                     b.HasIndex("EventId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("UserEvents");
+
+                    b.HasData(
+                        new
+                        {
+                            UserEventId = 1,
+                            EventId = 1,
+                            UserId = "39066369-1abb-4572-ab0c-a106de62709a"
+                        },
+                        new
+                        {
+                            UserEventId = 2,
+                            EventId = 2,
+                            UserId = "39066369-1abb-4572-ab0c-a106de62709a"
+                        },
+                        new
+                        {
+                            UserEventId = 3,
+                            EventId = 3,
+                            UserId = "f4136036-8ac8-4000-b6a3-8cb438a1852f"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -465,7 +459,7 @@ namespace PennyWyse.Migrations
                         .HasForeignKey("UserEventId");
 
                     b.HasOne("PennyWyse.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Events")
                         .HasForeignKey("UserId1");
                 });
 
@@ -473,11 +467,13 @@ namespace PennyWyse.Migrations
                 {
                     b.HasOne("PennyWyse.Models.Event", "Event")
                         .WithMany()
-                        .HasForeignKey("EventId");
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("PennyWyse.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

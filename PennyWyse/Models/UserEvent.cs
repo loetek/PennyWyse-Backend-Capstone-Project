@@ -7,17 +7,21 @@ using Microsoft.AspNetCore.Identity;
 
 namespace PennyWyse.Models
 {
-    public class UserEvent : IdentityUser
+    public class UserEvent 
     {
+
+        // This is the model for the user generated list of events.
+        [Required]
+        [Key]
         public int UserEventId { get; set; }
 
-        public int UserId { get; set; }
+        [Required]
+        public string UserId { get; set; }
         public User User { get; set; }
 
+        [Required]
         public int EventId { get; set; }
         public Event Event { get; set; }
-
-
 
         public virtual ICollection <Event> Events { get; set; }
 
