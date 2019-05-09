@@ -10,7 +10,7 @@
                 <h1 class="font-weight-light">How much?</h1>
                 
                 <!--Input box for the dollar amount-->
-                <form asp-action="Index" method="get">
+                <form asp-controller="Home" asp-action="Index">
                     <div class="form-actions no-color">
                         <p>
                             <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />

@@ -160,5 +160,10 @@ namespace PennyWyse.Controllers
         {
             return _context.Events.Any(e => e.EventId == id);
         }
+
+
+
+
+
     }
 }
