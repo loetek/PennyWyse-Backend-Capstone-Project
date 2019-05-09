@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PennyWyse.Data;
 using PennyWyse.Models;
+using PennyWyse.Models.ViewModels;
 
 namespace PennyWyse.Controllers
 {
@@ -21,6 +22,9 @@ namespace PennyWyse.Controllers
 
         //Getting the current user in the system (whoever is logged in)
         public Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+        
+
 
         public HomeController(ApplicationDbContext context,
             UserManager<User> userManager)
@@ -59,7 +63,11 @@ namespace PennyWyse.Controllers
                         events = events.OrderBy(e => e.Price);
                         break;
                 }
-                return View(await events.AsNoTracking().ToListAsync());
+                
+            HomeIndexViewModel ViewModel = new HomeIndexViewModel();
+       
+            
+                return View(ViewModel);
             }
 
          

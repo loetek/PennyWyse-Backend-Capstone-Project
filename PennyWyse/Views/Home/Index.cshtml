@@ -1,4 +1,6 @@
-﻿@{
+﻿@model PennyWyse.Models.ViewModels.HomeIndexViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -9,17 +11,38 @@
             <div class="col-12 text-center">
                 <h1 class="font-weight-light">How much?</h1>
                 
-                <!--Input box for the dollar amount-->
-                <form asp-controller="Home" asp-action="Index">
-                    <div class="form-actions no-color">
-                        <p>
-                            <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
-                            <input type="submit" value="Search" class="btn btn-default" /> 
-                            @*<a asp-action="Index">Back to Full List</a>*@
-                        </p>
+                
+                @*I tried this method based on the edit form with header body and submit button. Errored with passage of wrong model type.*@
+
+                <form asp-controller="Events" asp-action="Index">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label class="control-label" asp-for="PriceSearch"></label>
+                        <input asp-for="PriceSearch" class="form-control"/>
+                        <span asp-validation-for="PriceSearch" class="text-danger"></span>
                     </div>
-                </form>
+                <div class="form-group">
+                    <input type="submit" value="sEaRcH" class="btn btn-primary" />
+                </div>
+                
+                
+                
+                
+
+
+                <!--Input box for the dollar amount-->
+                @*<form asp-controller="Events" asp-action="Index">
+                <div class="form-actions no-color">
+                <p>
+                <input type="number" name="SearchPrice" value="@ViewData["currentPrice"]" />
+                <input type="submit" value="Filter" class="btn btn-default" />
+
+                </p>
+                </div>*@
+                @*<a asp-action="Index">Back to Full List</a>*@
+            </form>
             </div>
+            
         </div>
         </div>
 </header>

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PennyWyse.Data;
 using PennyWyse.Models;
+using PennyWyse.Models.ViewModels;
+using Remotion.Linq.Clauses;
 
 namespace PennyWyse.Controllers
 {
@@ -31,10 +33,38 @@ namespace PennyWyse.Controllers
 
         // GET: Events
         [Authorize]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(HomeIndexViewModel UserChoice)
         {
-            return View(await _context.Events.ToListAsync());
+            
+            if (UserChoice == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+
+                var PriceObject = _context.Events
+                    .Where(e => e.Price <= UserChoice.PriceSearch);
+
+
+                return View(PriceObject);
+            }
         }
+
+        // This method ties to the search bar on the landing page that will search via the price only. 
+        //public async Task<IActionResult> IndexPrice(int? UserPrice)
+        //{
+        //    var PriceObject = _context.Events
+        //        .Where(e => e.Price < UserPrice);
+
+        //    return View(PriceObject);
+
+        //}
+
+
+
+
+
 
         // GET: Events/Details/5
         public async Task<IActionResult> Details(int? id)
