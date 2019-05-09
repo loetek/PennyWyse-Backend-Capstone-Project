@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,18 +13,35 @@ namespace PennyWyse.Controllers
 {
     public class UserEventsController : Controller
     {
+        private readonly UserManager<User> _userManager;
+
         private readonly ApplicationDbContext _context;
 
-        public UserEventsController(ApplicationDbContext context)
+        public UserEventsController(ApplicationDbContext context,
+            UserManager<User> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
+
+        private Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: UserEvents
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.UserEvents.Include(u => u.Event).Include(u => u.User);
-            return View(await applicationDbContext.ToListAsync());
+            var user = await GetCurrentUserAsync();
+
+            var EventList = _context.UserEvents.Include(e => e.Event)
+                .Include(e => e.User)
+                .Where(ue => ue.UserId == user.Id)
+                .ToList();
+
+            if (EventList == null)
+            {
+                return NotFound();
+            }
+
+            return View(EventList);
         }
 
         // GET: UserEvents/Details/5
@@ -162,5 +180,31 @@ namespace PennyWyse.Controllers
         {
             return _context.UserEvents.Any(e => e.UserEventId == id);
         }
+
+
+        //This little piece o'magic will display current user's list/index.
+
+        public async Task<IActionResult> UserEventsList()
+        {
+
+            var user = await GetCurrentUserAsync();
+
+            var EventList = _context.UserEvents.Include(e => e.Event)
+                .Include(e => e.User)
+                .Where(ue => ue.UserId == user.Id)
+                .ToList();
+
+            if (EventList == null)
+            {
+                return NotFound();
+            }
+
+            return View(EventList);
+        }
+
+
+
+
+
     }
 }

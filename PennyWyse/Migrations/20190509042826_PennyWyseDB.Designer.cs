@@ -10,7 +10,7 @@ using PennyWyse.Data;
 namespace PennyWyse.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190508152312_PennyWyseDB")]
+    [Migration("20190509042826_PennyWyseDB")]
     partial class PennyWyseDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -300,10 +300,10 @@ namespace PennyWyse.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7a15488f-72e3-4073-a566-6942cb287c0b",
+                            Id = "b19c83f2-2fa3-4f47-8927-e2e560105bd2",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "1b2206bb-a74d-47d4-8082-04f5c397c5a6",
+                            ConcurrencyStamp = "29d9d99a-a52a-439f-956f-e72a74627594",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             Family = false,
@@ -313,20 +313,20 @@ namespace PennyWyse.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN9eT1Wu7CymCnLiAv6YVDpRhY+WULZlNjgy6s+XT4wb2UtaLhPN+2eI+hiNIHOxRg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECh9EKBWhcYIjiDTq/9wtEizx3QYDNvLHKFVto2VQdiibvYePp9uQka5E4QjodPs2g==",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "3ae09ac3-342c-4aa0-a7b9-384237a30bf3",
+                            SecurityStamp = "693181cc-f73a-47cc-bea3-cc41259d23f2",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
                         new
                         {
-                            Id = "39066369-1abb-4572-ab0c-a106de62709a",
+                            Id = "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "b9b1a8ad-4a52-4098-b113-8ca005bb0e3f",
+                            ConcurrencyStamp = "378262ab-3edc-4694-b771-5a50a20d61a6",
                             Email = "jd@jd.com",
                             EmailConfirmed = true,
                             Family = true,
@@ -336,19 +336,20 @@ namespace PennyWyse.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JD@JD.COM",
                             NormalizedUserName = "JD@JD.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDYgesFf9/lx7Y4s79c7ETu7NunaZCew9GT3dS0DvK5GGD18UNnVKJg4Kb+J4far2Q==",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "919c0749-a333-45d7-b384-5798062df986",
+                            SecurityStamp = "6b211772-a684-4855-b549-1bef1ef5d415",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "jd@jd.com"
                         },
                         new
                         {
-                            Id = "f4136036-8ac8-4000-b6a3-8cb438a1852f",
+                            Id = "59a02b6e-9f7a-47e4-9138-ec87086e12ad",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "1c902aee-8635-4950-b69e-72d5ee1dc866",
+                            ConcurrencyStamp = "a1338bd1-5156-45ab-bb2f-19e65d0099dc",
                             Email = "joey@joey.com",
                             EmailConfirmed = true,
                             Family = false,
@@ -358,9 +359,10 @@ namespace PennyWyse.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JOEY@JOEY.COM",
                             NormalizedUserName = "JOEY@JOEY.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEARGul3WxRGVxEWpArCMqEoRaY+iUeyXWVouH4+DLBjWsOy6oJG6Uj64HSQ8721V3Q==",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "5b73b7a2-689a-4b5c-9b9f-ebce90ad0017",
+                            SecurityStamp = "a91506ef-92a3-4d5c-b3bf-9ab706399a54",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "joey@joey.com"
@@ -391,19 +393,19 @@ namespace PennyWyse.Migrations
                         {
                             UserEventId = 1,
                             EventId = 1,
-                            UserId = "39066369-1abb-4572-ab0c-a106de62709a"
+                            UserId = "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e"
                         },
                         new
                         {
                             UserEventId = 2,
                             EventId = 2,
-                            UserId = "39066369-1abb-4572-ab0c-a106de62709a"
+                            UserId = "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e"
                         },
                         new
                         {
                             UserEventId = 3,
                             EventId = 3,
-                            UserId = "f4136036-8ac8-4000-b6a3-8cb438a1852f"
+                            UserId = "59a02b6e-9f7a-47e4-9138-ec87086e12ad"
                         });
                 });
 

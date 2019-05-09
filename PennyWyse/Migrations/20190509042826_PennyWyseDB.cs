@@ -224,9 +224,9 @@ namespace PennyWyse.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Email", "EmailConfirmed", "Family", "FirstName", "LastName", "LegalAge", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageURL", "SecurityStamp", "State", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "7a15488f-72e3-4073-a566-6942cb287c0b", 0, "Nashville", "1b2206bb-a74d-47d4-8082-04f5c397c5a6", "admin@admin.com", true, false, "admin", "admin", false, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEN9eT1Wu7CymCnLiAv6YVDpRhY+WULZlNjgy6s+XT4wb2UtaLhPN+2eI+hiNIHOxRg==", null, false, "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg", "3ae09ac3-342c-4aa0-a7b9-384237a30bf3", "Tennessee", false, "admin@admin.com" },
-                    { "39066369-1abb-4572-ab0c-a106de62709a", 0, "Nashville", "b9b1a8ad-4a52-4098-b113-8ca005bb0e3f", "jd@jd.com", true, true, "JD", "Wheeler", false, false, null, "JD@JD.COM", "JD@JD.COM", null, null, false, "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg", "919c0749-a333-45d7-b384-5798062df986", "Tennessee", false, "jd@jd.com" },
-                    { "f4136036-8ac8-4000-b6a3-8cb438a1852f", 0, "Nashville", "1c902aee-8635-4950-b69e-72d5ee1dc866", "joey@joey.com", true, false, "Joey", "B", true, false, null, "JOEY@JOEY.COM", "JOEY@JOEY.COM", null, null, false, "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg", "5b73b7a2-689a-4b5c-9b9f-ebce90ad0017", "Tennessee", false, "joey@joey.com" }
+                    { "b19c83f2-2fa3-4f47-8927-e2e560105bd2", 0, "Nashville", "29d9d99a-a52a-439f-956f-e72a74627594", "admin@admin.com", true, false, "admin", "admin", false, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAECh9EKBWhcYIjiDTq/9wtEizx3QYDNvLHKFVto2VQdiibvYePp9uQka5E4QjodPs2g==", null, false, "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg", "693181cc-f73a-47cc-bea3-cc41259d23f2", "Tennessee", false, "admin@admin.com" },
+                    { "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e", 0, "Nashville", "378262ab-3edc-4694-b771-5a50a20d61a6", "jd@jd.com", true, true, "JD", "Wheeler", false, false, null, "JD@JD.COM", "JD@JD.COM", "AQAAAAEAACcQAAAAEDYgesFf9/lx7Y4s79c7ETu7NunaZCew9GT3dS0DvK5GGD18UNnVKJg4Kb+J4far2Q==", null, false, "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg", "6b211772-a684-4855-b549-1bef1ef5d415", "Tennessee", false, "jd@jd.com" },
+                    { "59a02b6e-9f7a-47e4-9138-ec87086e12ad", 0, "Nashville", "a1338bd1-5156-45ab-bb2f-19e65d0099dc", "joey@joey.com", true, false, "Joey", "B", true, false, null, "JOEY@JOEY.COM", "JOEY@JOEY.COM", "AQAAAAEAACcQAAAAEARGul3WxRGVxEWpArCMqEoRaY+iUeyXWVouH4+DLBjWsOy6oJG6Uj64HSQ8721V3Q==", null, false, "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg", "a91506ef-92a3-4d5c-b3bf-9ab706399a54", "Tennessee", false, "joey@joey.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -242,17 +242,17 @@ namespace PennyWyse.Migrations
             migrationBuilder.InsertData(
                 table: "UserEvents",
                 columns: new[] { "UserEventId", "EventId", "UserId" },
-                values: new object[] { 1, 1, "39066369-1abb-4572-ab0c-a106de62709a" });
+                values: new object[] { 1, 1, "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e" });
 
             migrationBuilder.InsertData(
                 table: "UserEvents",
                 columns: new[] { "UserEventId", "EventId", "UserId" },
-                values: new object[] { 2, 2, "39066369-1abb-4572-ab0c-a106de62709a" });
+                values: new object[] { 2, 2, "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e" });
 
             migrationBuilder.InsertData(
                 table: "UserEvents",
                 columns: new[] { "UserEventId", "EventId", "UserId" },
-                values: new object[] { 3, 3, "f4136036-8ac8-4000-b6a3-8cb438a1852f" });
+                values: new object[] { 3, 3, "59a02b6e-9f7a-47e4-9138-ec87086e12ad" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

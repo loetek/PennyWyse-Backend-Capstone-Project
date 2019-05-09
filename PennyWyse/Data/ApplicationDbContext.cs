@@ -65,7 +65,7 @@ namespace PennyWyse.Data
                     SecurityStamp = Guid.NewGuid().ToString("D")
                 };
                 var passwordHash2 = new PasswordHasher<User>();
-                user.PasswordHash = passwordHash2.HashPassword(user2, "$ecreT01");
+                user2.PasswordHash = passwordHash2.HashPassword(user2, "$ecreT01");
                 modelBuilder.Entity<User>().HasData(user2);
 
                 User user3 = new User
@@ -87,7 +87,7 @@ namespace PennyWyse.Data
                     SecurityStamp = Guid.NewGuid().ToString("D")
                 };
                 var passwordHash3 = new PasswordHasher<User>();
-                user.PasswordHash = passwordHash3.HashPassword(user3, "$ecreT01");
+                user3.PasswordHash = passwordHash3.HashPassword(user3, "$ecreT01");
                 modelBuilder.Entity<User>().HasData(user3);
 
 
