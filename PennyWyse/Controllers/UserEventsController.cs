@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using PennyWyse.Data;
 using PennyWyse.Models;
 
@@ -68,7 +69,7 @@ namespace PennyWyse.Controllers
         public IActionResult Create()
         {
             ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -77,8 +78,16 @@ namespace PennyWyse.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserEventId,UserId,EventId")] UserEvent userEvent)
+        public async Task<IActionResult> Create( UserEvent userEvent)
         {
+            ModelState.Remove("User");
+            ModelState.Remove("UserId");
+
+            User CurUser = await GetCurrentUserAsync();
+            userEvent.User = CurUser;
+            userEvent.UserId = CurUser.Id;
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(userEvent);
@@ -86,7 +95,7 @@ namespace PennyWyse.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
+            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
             return View(userEvent);
         }
 
