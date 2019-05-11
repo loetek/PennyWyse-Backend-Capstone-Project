@@ -34,8 +34,7 @@ namespace PennyWyse.Controllers
         // GET: Events
         [Authorize]
         public async Task<IActionResult> Index(HomeIndexViewModel UserChoice)
-        {
-            
+        {   
             if (UserChoice == null)
             {
                 return NotFound();
@@ -60,10 +59,6 @@ namespace PennyWyse.Controllers
         //    return View(PriceObject);
 
         //}
-
-
-
-
 
 
         // GET: Events/Details/5
@@ -190,10 +185,6 @@ namespace PennyWyse.Controllers
         {
             return _context.Events.Any(e => e.EventId == id);
         }
-
-
-
-
 
     }
 }
