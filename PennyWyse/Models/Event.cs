@@ -8,6 +8,7 @@ namespace PennyWyse.Models
 {
     public class Event
     {
+        [Required]
         public int EventId { get; set; }
         [Required]
         [Display(Name = "Event Name")]
@@ -24,9 +25,9 @@ namespace PennyWyse.Models
         public bool FamilyEvent { get; set; }
         [Display(Name = "Event Description")]
         public string Description { get; set; }
-        [Display(Name = "More Info")]
+        [Display(Name = "More Info URL")]
         public string InfoURL { get; set; }
-        [Display(Name = "Event Image")]
+        [Display(Name = "Event Image URL")]
         public string ImageURL { get; set; }
         [Display(Name = "Event City")]
         public string City { get; set; }
