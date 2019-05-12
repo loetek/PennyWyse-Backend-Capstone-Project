@@ -226,6 +226,118 @@ namespace PennyWyse.Migrations
                             StartDate = new DateTime(2019, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             State = "Tennessee",
                             UserId = 0
+                        },
+                        new
+                        {
+                            EventId = 4,
+                            City = "Nashville",
+                            Description = "Nashville Zoo welcomes all species of beer lovers to the eighth annual Brew at the Zoo happening on Friday, May 31 from 6:30pm to 10:30pm. Animals, live music, local food trucks and over 100 craft beers are on tap at this unique after-hours event voted the best beer event in Nashville by Nashville Scene readers in 2014 and 2016.",
+                            EventType = "Outdoor",
+                            FamilyEvent = true,
+                            ImageURL = "http://nashvilleguru.com/officialwebsite/wp-content/uploads/2015/05/Brew-at-the-Zoo.jpg",
+                            InfoURL = "https://www.nashvillezoo.org/upcoming-events/entry/brew-at-the-zoo/instance/5-31-2019",
+                            LegalAge = true,
+                            Name = "Brew at the Zoo",
+                            Price = 75,
+                            StartDate = new DateTime(2019, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            State = "Tennessee",
+                            UserId = 0
+                        },
+                        new
+                        {
+                            EventId = 5,
+                            City = "Manchester",
+                            Description = "The Bonnaroo Music and Arts Festival is an American annual four-day music festival developed and produced by Superfly Presents and AC Entertainment. Since its first year in 2002, it has been held at what is now Great Stage Park on a 650-acre (263 km2) farm in Manchester, Tennessee. The festival typically starts on the second Thursday in June and lasts four days. Main attractions of this festival are the multiple stages featuring live music with a diverse array of musical styles including indie rock, classic rock, world music, hip hop, jazz, americana, bluegrass, country music, folk, gospel, reggae, pop, electronic, and other alternative music.",
+                            EventType = "Music Festival",
+                            FamilyEvent = false,
+                            ImageURL = "https://www.bonnaroo.com/wp-www-bonnaroo-com/wp/wp-content/uploads/2018/11/logo-1bb87d41-b09cb133.png",
+                            InfoURL = "https://www.bonnaroo.com/",
+                            LegalAge = true,
+                            Name = "Bonnaroo",
+                            Price = 350,
+                            StartDate = new DateTime(2019, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            State = "Tennessee",
+                            UserId = 0
+                        },
+                        new
+                        {
+                            EventId = 6,
+                            City = "Nashville",
+                            Description = "Pride parades are outdoor events celebrating lesbian, gay, bisexual, transgender, and queer social and self acceptance, achievements, legal rights and pride. The events also at times serve as demonstrations for legal rights such as same-sex marriage.",
+                            EventType = "Parade",
+                            FamilyEvent = true,
+                            ImageURL = "http://nashvilleguru.com/officialwebsite/wp-content/uploads/2015/06/Nashville-Pride-Festival-1.jpg",
+                            InfoURL = "https://www.nashvillepride.org/",
+                            LegalAge = false,
+                            Name = "Nashville Pride",
+                            Price = 5,
+                            StartDate = new DateTime(2019, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            State = "Tennessee",
+                            UserId = 0
+                        },
+                        new
+                        {
+                            EventId = 7,
+                            City = "Nashville",
+                            Description = "WestEnd Kitchen & Bar is excited to welcome fans of celebrity magician Justin Flom with a special, An Evening of Magic dinner package. The package includes one entrée, one glass of house wine or beer, valet parking plus two general admission tickets to the show.",
+                            EventType = "Show",
+                            FamilyEvent = false,
+                            ImageURL = "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F56447862%2F50800243798%2F1%2Foriginal.20190207-205651?w=800&auto=compress&rect=0%2C0%2C2160%2C1080&s=a3bfbcc116e5622166604d60a6b2a5b5",
+                            InfoURL = "https://www.eventbrite.com/e/an-evening-of-magic-with-justin-flom-at-analog-at-hutton-hotel-tickets-55677038521",
+                            LegalAge = true,
+                            Name = "An Evening of Magic with Justin Flom",
+                            Price = 50,
+                            StartDate = new DateTime(2019, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            State = "Tennessee",
+                            UserId = 0
+                        },
+                        new
+                        {
+                            EventId = 8,
+                            City = "Nashville",
+                            Description = "The Master Gardeners of Davidson County will be hosting the Urban Gardening Festival on Saturday, May 18, 2019, from 9:00am to 4:00pm at the Ellington Agricultural Center. The public is invited to learn gardening methods, techniques, and engage with local growers, artisans, exhibitors, educators, and more. There will also be local food trucks with food and beverages. The event is rain or shine. All ages are welcome.",
+                            EventType = "Outdoor Festival",
+                            FamilyEvent = true,
+                            ImageURL = "http://nashvilleguru.com/officialwebsite/wp-content/uploads/2018/05/Urban-Gardening-Fest-01.jpg",
+                            InfoURL = "http://mgofdc.org/ugf",
+                            LegalAge = false,
+                            Name = "Urban Gardening Festival",
+                            Price = 0,
+                            StartDate = new DateTime(2019, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            State = "Tennessee",
+                            UserId = 0
+                        },
+                        new
+                        {
+                            EventId = 9,
+                            City = "Nashville",
+                            Description = "The annual East Nashville Crawfish Bash is Saturday, May 25, 2019, from noon to 9:00pm in East Park. The East Nashville celebration will feature local food, art, music, and breweries for a family- and pet-friendly day of fun. Admission is free, but ticket options are also available if you want to secure a plate of crawfish or enjoy VIP perks.",
+                            EventType = "Outdoor Festival",
+                            FamilyEvent = true,
+                            ImageURL = "https://pridepublishinggroup.com/pride/wp-content/uploads/2019/01/st-jude-race.jpg",
+                            InfoURL = "http://eastnashcrawbash.com/",
+                            LegalAge = false,
+                            Name = "Nashville Crawfish Boil",
+                            Price = 40,
+                            StartDate = new DateTime(2019, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            State = "Tennessee",
+                            UserId = 0
+                        },
+                        new
+                        {
+                            EventId = 10,
+                            City = "Nashville",
+                            Description = "Get ready country music fans—it’s almost time for Nashville’s most beloved music event, the CMA Music Festival. The event is Thursday through Sunday, June 6-9, 2019, in Downtown Nashville, and attracts about 80,000 locals and tourists for one weekend of country music lovin’.",
+                            EventType = "Outdoor Festival",
+                            FamilyEvent = true,
+                            ImageURL = "https://cmafest.com/wp-content/uploads/2019/04/Ascend-Amphitheater-900x500-815x460.jpg",
+                            InfoURL = "https://cmafest.com/",
+                            LegalAge = true,
+                            Name = "CMA Music Festival",
+                            Price = 0,
+                            StartDate = new DateTime(2019, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            State = "Tennessee",
+                            UserId = 0
                         });
                 });
 
@@ -298,10 +410,10 @@ namespace PennyWyse.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b19c83f2-2fa3-4f47-8927-e2e560105bd2",
+                            Id = "dcf34dc4-f990-45f7-9157-28359ab290cf",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "29d9d99a-a52a-439f-956f-e72a74627594",
+                            ConcurrencyStamp = "56175bb5-d4c4-4a87-b603-49a908fd2595",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             Family = false,
@@ -311,20 +423,20 @@ namespace PennyWyse.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECh9EKBWhcYIjiDTq/9wtEizx3QYDNvLHKFVto2VQdiibvYePp9uQka5E4QjodPs2g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJIuRYgvLdxsU9ms05nSrtvznaMSnGhJgK3Jyn0ee+jt5HQnbYnfvHlxIoY7VQWWuw==",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "693181cc-f73a-47cc-bea3-cc41259d23f2",
+                            SecurityStamp = "09f5240c-f512-4c4c-9b46-c55a8910fbf8",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
                         new
                         {
-                            Id = "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e",
+                            Id = "c09c87f1-da8c-4ee3-941e-06bb56a6839c",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "378262ab-3edc-4694-b771-5a50a20d61a6",
+                            ConcurrencyStamp = "8770a899-0d82-4215-90ce-0ff449e6ca8d",
                             Email = "jd@jd.com",
                             EmailConfirmed = true,
                             Family = true,
@@ -334,20 +446,20 @@ namespace PennyWyse.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JD@JD.COM",
                             NormalizedUserName = "JD@JD.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDYgesFf9/lx7Y4s79c7ETu7NunaZCew9GT3dS0DvK5GGD18UNnVKJg4Kb+J4far2Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIHgmoD1qGurkoK/lGlqCoL5khlEklsEoomArWWLqE0KSfUg+zEdpwKuSkC1exOPuA==",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "6b211772-a684-4855-b549-1bef1ef5d415",
+                            SecurityStamp = "71b2b062-c453-4b09-b962-7baa9d928221",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "jd@jd.com"
                         },
                         new
                         {
-                            Id = "59a02b6e-9f7a-47e4-9138-ec87086e12ad",
+                            Id = "12a20ea7-cf1e-45b0-a1b5-449f446d68c2",
                             AccessFailedCount = 0,
                             City = "Nashville",
-                            ConcurrencyStamp = "a1338bd1-5156-45ab-bb2f-19e65d0099dc",
+                            ConcurrencyStamp = "795fa7ad-efd3-40ad-9ebd-96de1ef931e6",
                             Email = "joey@joey.com",
                             EmailConfirmed = true,
                             Family = false,
@@ -357,10 +469,10 @@ namespace PennyWyse.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JOEY@JOEY.COM",
                             NormalizedUserName = "JOEY@JOEY.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEARGul3WxRGVxEWpArCMqEoRaY+iUeyXWVouH4+DLBjWsOy6oJG6Uj64HSQ8721V3Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGk8s7QsG1vygSZxe3IR8XI+G3zYepCAE6QBJHrUdGgkEvmxGGTQIJG37PigCDvahw==",
                             PhoneNumberConfirmed = false,
                             ProfileImageURL = "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg",
-                            SecurityStamp = "a91506ef-92a3-4d5c-b3bf-9ab706399a54",
+                            SecurityStamp = "690b52ab-378a-451a-8cd7-d1fa837cf42b",
                             State = "Tennessee",
                             TwoFactorEnabled = false,
                             UserName = "joey@joey.com"
@@ -391,19 +503,19 @@ namespace PennyWyse.Migrations
                         {
                             UserEventId = 1,
                             EventId = 1,
-                            UserId = "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e"
+                            UserId = "c09c87f1-da8c-4ee3-941e-06bb56a6839c"
                         },
                         new
                         {
                             UserEventId = 2,
                             EventId = 2,
-                            UserId = "b1588c9e-f3b6-4f73-aa7c-987fd5fc720e"
+                            UserId = "c09c87f1-da8c-4ee3-941e-06bb56a6839c"
                         },
                         new
                         {
                             UserEventId = 3,
                             EventId = 3,
-                            UserId = "59a02b6e-9f7a-47e4-9138-ec87086e12ad"
+                            UserId = "12a20ea7-cf1e-45b0-a1b5-449f446d68c2"
                         });
                 });
 
