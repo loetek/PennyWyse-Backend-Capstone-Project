@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace PennyWyse.Models.ViewModels
 {
-    public class UserActivity
+    public class HomeIndexViewModel
     {
-
+        public int PriceSearch { get; set; }
 
     }
 }

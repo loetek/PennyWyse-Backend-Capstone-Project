@@ -1,8 +1,59 @@
-﻿@{
+﻿@model PennyWyse.Models.ViewModels.HomeIndexViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <h1 class="font-weight-light">How much?</h1>
+                
+                
+                @*I tried this method based on the edit form with header body and submit button. Errored with passage of wrong model type.*@
+
+                <form asp-controller="Events" asp-action="Index">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        
+                        <input asp-for="PriceSearch" class="form-control"/>
+                        <span asp-validation-for="PriceSearch" class="text-danger"></span>
+                    </div>
+                <div class="form-group">
+                    <input type="submit" value="sEaRcH" class="btn btn-primary" />
+                </div>
+                
+                
+                
+                
+
+
+                <!--Input box for the dollar amount-->
+                @*<form asp-controller="Events" asp-action="Index">
+                <div class="form-actions no-color">
+                <p>
+                <input type="number" name="SearchPrice" value="@ViewData["currentPrice"]" />
+                <input type="submit" value="Filter" class="btn btn-default" />
+
+                </p>
+                </div>*@
+                @*<a asp-action="Index">Back to Full List</a>*@
+            </form>
+            </div>
+            
+        </div>
+        </div>
+</header>
+
+<!-- Page Content -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="font-weight-light">What is this?</h2>
+        <p> PennyWyse is an app that focuses on the bottom dollar. Only enter the amount that you would want to spend.</p>
+    </div>
+</section>
+    
+    
+
