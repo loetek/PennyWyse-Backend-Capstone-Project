@@ -12,6 +12,7 @@ a.navbar-brand {
 html {
   font-size: 14px;
     font: greenyellow;
+   
 }
 @media (min-width: 768px) {
   html {
@@ -38,13 +39,15 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  
 }
 .footer {
   position: relative;
@@ -82,12 +85,14 @@ body {
     background-image: linear-gradient(grey, black);
     background-position: center;
     background-size: cover;
+
+    
 }
 .formContainer {
     display: flex;
     justify-content: space-around;
     margin-top: 15%;
-    background-color: #FAF9F8;
+    background-color: black;
     box-shadow: 2px 2px 4px gray;
     padding-top: 20px;
     margin-left: 200px;
@@ -97,7 +102,7 @@ body {
 .emailInput, 
 .passwordInput{ 
     display: block;
-    background: none;
+    background: grey;
     padding: 0.175rem 0.175rem 0.0875rem;
     font-size: 1.4rem;
     border-width: 0;
@@ -169,7 +174,7 @@ body {
 
 #holder{
     -moz-user-select: -moz-none;
-    -khtml-user-select: none;
+    -html-user-select: none;
     -webkit-user-select: none;
     background: transparent;
     padding: 10px;
@@ -205,19 +210,25 @@ body {
     border-radius: 12px;
 }
 .btnText {
-    color : white;
-    transition : .3s;
+    color: black;
+    transition: .3s;
+    border-radius: 12px;
+    border-color: transparent;
+    margin-left: 100px;
 }
 .btnText2 {
-    margin-top : 63px;
-    margin-right : -130px;
-    color : #FFF;
+    background: transparent;
+    margin-top: 69px;
+    margin-right: -150px;
+    color: whitesmoke;
+    border-radius: 12px;
+    border-color: transparent;
 }
 .button:hover .btnTwo{ /*When hovering over .button change .btnTwo*/
-    left: -130px;
+    left: -100px;
 }
 .button:hover .btnText{ /*When hovering over .button change .btnText*/
-    margin-left : 65px;
+    margin-left : 90px;
 }
 .button:active { /*Clicked and held*/
     box-shadow: 0px 5px 6px rgba(0,0,0,0.3);

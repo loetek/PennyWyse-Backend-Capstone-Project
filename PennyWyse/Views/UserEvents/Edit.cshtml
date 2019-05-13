@@ -6,22 +6,67 @@
 
 <h1>Edit</h1>
 
-<h4>UserEvent</h4>
+<h4>Event</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="UserEventId" />
+            <input type="hidden" asp-for="EventId" />
             <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="UserId" class="text-danger"></span>
+                <label asp-for="Event.Name" class="control-label"></label>
+                <input asp-for="Event.Name" class="form-control" />
+                <span asp-validation-for="Event.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EventId" class="control-label"></label>
-                <select asp-for="EventId" class="form-control" asp-items="ViewBag.EventId"></select>
-                <span asp-validation-for="EventId" class="text-danger"></span>
+                <label asp-for="Event.Price" class="control-label"></label>
+                <input asp-for="Event.Price" class="form-control" />
+                <span asp-validation-for="Event.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.StartDate" class="control-label"></label>
+                <input asp-for="Event.StartDate" class="form-control" />
+                <span asp-validation-for="Event.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Event.LegalAge" /> @Html.DisplayNameFor(model => model.Event.LegalAge)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Event.FamilyEvent" /> @Html.DisplayNameFor(model => model.Event.FamilyEvent)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.Description" class="control-label"></label>
+                <input asp-for="Event.Description" class="form-control" />
+                <span asp-validation-for="Event.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.InfoURL" class="control-label"></label>
+                <input asp-for="Event.InfoURL" class="form-control" />
+                <span asp-validation-for="Event.InfoURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.ImageURL" class="control-label"></label>
+                <input asp-for="Event.ImageURL" class="form-control" />
+                <span asp-validation-for="Event.ImageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.City" class="control-label"></label>
+                <input asp-for="Event.City" class="form-control" />
+                <span asp-validation-for="Event.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.State" class="control-label"></label>
+                <input asp-for="Event.State" class="form-control" />
+                <span asp-validation-for="Event.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.EventType" class="control-label"></label>
+                <input asp-for="Event.EventType" class="form-control" />
+                <span asp-validation-for="Event.EventType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -29,7 +74,6 @@
         </form>
     </div>
 </div>
-
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
