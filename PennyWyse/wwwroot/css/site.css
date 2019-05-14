@@ -11,7 +11,7 @@ a.navbar-brand {
 -------------------------------------------------- */
 html {
   font-size: 14px;
-    font: greenyellow;
+  font: greenyellow;
    
 }
 @media (min-width: 768px) {
@@ -232,4 +232,19 @@ body {
 }
 .button:active { /*Clicked and held*/
     box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
+}
+
+
+.navbar{
+
+    background-color: black !important;
+
+}
+
+.logoImage{
+
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 12px;
+
 }

@@ -4,50 +4,57 @@
     ViewData["Title"] = "Index";
 }
 
-
-
 <table class="table">
-   
-    
+  
     <!-- Page Heading -->
     <h1 class="my-4">
         <small>Here are the events that are upcoming based on your cash.</small>
     </h1>
     <tbody>
-    @foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr>
             <!-- Page Content -->
             <div class="container">
-
-              
 
                 <!-- Project One -->
                 <div class="row">
                     <div class="col-md-7">
                         <a href=" @Html.DisplayFor(modelItem => item.InfoURL)">
-                            <img class="img-fluid rounded mb-3 mb-md-0" src= @Html.DisplayFor(modelItem => item.ImageURL) alt="">
+                            <img class="img-fluid rounded mb-3 mb-md-0" src=@Html.DisplayFor(modelItem => item.ImageURL) alt="">
                         </a>
                     </div>
                     <div class="col-md-5">
                         <h3> @Html.DisplayFor(modelItem => item.Name)</h3>
                         <h4> $ @Html.DisplayFor(modelItem => item.Price)</h4>
                         <p> @Html.DisplayFor(modelItem => item.Description)</p>
+
                         <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.InfoURL)>View Event</a>
-                        <a asp-controller="UserEvents" asp-action="Create" asp-route-id="@item.EventId">Add to List</a>
+
+                        <a asp-controller="UserEvents" value="Create" asp-route-id="@item.EventId">Add to List</a>
+
+                        <form asp-action="Create" asp-controller="UserEvents">
+                            <input type="hidden" value="@item.EventId" name="EventId"/>
+                            <div class="form-group">
+                                <input type="submit" value="clickandy" class="btn btn-primary"/>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <!-- /.row -->
-
-                <hr>
-
-
             </div>
-            <!-- /.container -->
 
+          
+
+
+
+
+         
+
+           
+         
         </tr>
-
-             
     }
+       
     </tbody>
     
 

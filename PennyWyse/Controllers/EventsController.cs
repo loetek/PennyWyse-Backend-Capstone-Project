@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -29,21 +30,23 @@ namespace PennyWyse.Controllers
         {
             _context = context;
             _userManager = userManager;
+
         }
+
 
         // GET: Events
         [Authorize]
-        public async Task<IActionResult> Index(HomeIndexViewModel UserChoice)
+        public async Task<IActionResult> Index(HomeIndexViewModel UserChoice, int? searchId)
         {   
-            if (UserChoice == null)
+        
+            if (searchId == null)
             {
                 return NotFound();
             }
             else
             {
-
                 var PriceObject = _context.Events
-                    .Where(e => e.Price <= UserChoice.PriceSearch);
+                    .Where(e => e.Price <= searchId);
 
 
                 return View(PriceObject);

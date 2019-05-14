@@ -12,17 +12,17 @@
                 <h1 class="font-weight-light">How much?</h1>
        
                 @*This is the input field for the search bar.*@
-                <form asp-controller="Events" asp-action="Index" asp-route-id="@Model.PriceSearch" >
+                <form method="get">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <input asp-for="PriceSearch" asp-route-id="@Model.PriceSearch" class="form-control"/>
+                        <input asp-for="PriceSearch" name ="searchId" class="form-control"/>
                         <span asp-validation-for="PriceSearch" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <div class="button">
                             <input class="btnText" Value="Ready?"/>
                             <div class="btnTwo">
-                                <input type="submit" value="GO!" class="btnText2"/>
+                                <input asp-controller="Events" asp-action="Index" asp-route-searchId="@Model.PriceSearch" type="submit" value="GO!" class="btnText2"/>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,9 @@
 
 @{
     ViewData["Title"] = "Index";
+    string searchId = Context.Request.Query["searchId"].ToString();
 }
+
 
 
 
@@ -35,23 +37,16 @@
                             <p> @Html.DisplayFor(modelItem => item.Event.Description)</p>
                             <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.Event.InfoURL)>View Event</a>
 
-                           
-                            
-                            
-                            <a asp-action="Edit" asp-route-id="@item.UserEventId">Edit</a> |
-                            
-                        
-                            <a asp-action="Details" asp-route-id="@item.UserEventId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.UserEventId">Delete</a>
+                            <a asp-action="Edit" asp-route-searchId="@searchId" asp-route-id="@item.UserEventId">Edit</a> |
+                            <a asp-action="Details" asp-route-searchId="@searchId"  asp-route-id="@item.UserEventId">Details</a> |
+                            <a asp-action="Delete" asp-route-searchId="@searchId" asp-route-id="@item.UserEventId">Delete</a>
 
                         </div>
                     </div>
 
                     <hr />
-                    
-                    @*<h1>LinkShare Example</h1>
-                    Share: @LinkShare.GetHtml("LinkShare Example", linkSites: new[]{
-                               LinkShareSite.Reddit, LinkShareSite.Facebook, LinkShareSite.Twitter})*@
+
+              
                 </div>
 
             </tr>

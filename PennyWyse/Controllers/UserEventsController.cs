@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -66,20 +67,21 @@ namespace PennyWyse.Controllers
         }
 
         // GET: UserEvents/Create
-        public IActionResult Create()
-        {
-            ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name");
-            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name");
+        //    //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+        //    return View();
+        //}
 
         // POST: UserEvents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( UserEvent userEvent)
+        public async Task<IActionResult> Create( UserEvent userEvent, int Id)
         {
+
             ModelState.Remove("User");
             ModelState.Remove("UserId");
 
@@ -94,7 +96,8 @@ namespace PennyWyse.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
+
+            //ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
             //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
             return View(userEvent);
         }
