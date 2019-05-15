@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    string searchId = Context.Request.Query["searchId"].ToString();
 }
 
 <h1>Delete</h1>
@@ -27,7 +28,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="UserEventId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" asp-route-searchId="@searchId" /> |
+        <a asp-action="Index" asp-route-searchId="@searchId">Back to List</a>
     </form>
 </div>

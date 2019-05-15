@@ -2,19 +2,20 @@
 @using PennyWyse.Models
 
 
-
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
+@{ var user = await UserManager.GetUserAsync(User);}
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
 
-        @*<a href=" @Html.DisplayFor()">*@
+             <img class="userImage" height="50" width="50" src="@user.ProfileImageURL"/>
+            
 
             <li class="nav-item">
-                <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @user.FirstName!</a>
             </li>
             <li class="nav-item">
                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

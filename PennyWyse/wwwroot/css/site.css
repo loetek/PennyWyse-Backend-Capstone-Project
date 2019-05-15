@@ -78,14 +78,11 @@ body {
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 200vh;
     width: 100vw;
     /*Set the back ground color here*/
     color:whitesmoke;
-    background-image: linear-gradient(grey, black);
-    background-position: center;
-    background-size: cover;
-
+    background-color: black;
     
 }
 .formContainer {
@@ -235,16 +232,36 @@ body {
 }
 
 
-.navbar{
-
-    background-color: black !important;
-
+.navbar {
+    background: #0F2027 !important; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027) !important; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .logoImage{
 
+    height: 30px !important;
+    width: 220px !important;
+    border-radius: 12px;
+
+}
+
+.userImage{
+
     height: 50px !important;
     width: 50px !important;
     border-radius: 12px;
+
+}
+
+.navIcons {
+    
+    background-color: white !important;
+    border-radius: 12px;
+}
+
+.nav-item{
+
+    margin: 10px, 5px, 5px, 5px;
 
 }

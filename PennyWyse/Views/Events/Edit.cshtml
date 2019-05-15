@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    string searchId = Context.Request.Query["searchId"].ToString();
 }
 
 <h1>Edit</h1>
@@ -81,7 +82,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a  asp-route-searchId="@searchId" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

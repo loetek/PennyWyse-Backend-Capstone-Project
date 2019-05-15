@@ -38,7 +38,7 @@
         @* JD--- Validating user before sharing *@
         @if (SignInManager.IsSignedIn(User))
         {
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-black text-white bg-black border-bottom box-shadow mb-3">
+            <nav class="navbar navbar-fixed-top navbar-expand-sm navbar-toggleable-sm navbar-black text-white bg-black border-bottom box-shadow mb-3">
                 <div class="container">
                     @*Logo Goes Here*@
 
@@ -52,7 +52,7 @@
                         <partial name="_LoginPartial" />
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" asp-route-searchId="@searchId">Home</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" asp-route-searchId="@searchId"><img class="logoImage" height="75" width="150" src="Images/PWLogoLight.png" /></a>
                             </li>
 
                             <li class="nav-item">
@@ -60,12 +60,12 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="UserEvents" asp-action="Index" asp-route-searchId="@searchId">Your List</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="UserEvents" asp-action="Index" asp-route-searchId="@searchId"> Your List </a>
                             </li>
 
                         </ul>
 
-                        <img class="logoImage" height="50" width="50" src="Images/Screen Shot 2019-05-12 at 5.36.26 PM.png"/>
+                        
                     </div>
                     
                 </div>

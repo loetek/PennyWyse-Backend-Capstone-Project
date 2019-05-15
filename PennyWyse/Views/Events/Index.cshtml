@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    string searchId = Context.Request.Query["searchId"].ToString();
 }
 
 <table class="table">
@@ -29,14 +30,12 @@
                         <h4> $ @Html.DisplayFor(modelItem => item.Price)</h4>
                         <p> @Html.DisplayFor(modelItem => item.Description)</p>
 
-                        <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.InfoURL)>View Event</a>
-
-                        <a asp-controller="UserEvents" value="Create" asp-route-id="@item.EventId">Add to List</a>
-
-                        <form asp-action="Create" asp-controller="UserEvents">
+                        <form asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents">
                             <input type="hidden" value="@item.EventId" name="EventId"/>
                             <div class="form-group">
-                                <input type="submit" value="clickandy" class="btn btn-primary"/>
+                                <input type="submit" value="Add Event" class="btn btn-primary"/>
+
+                        <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.InfoURL)>View Website</a>
                             </div>
                         </form>
                     </div>
