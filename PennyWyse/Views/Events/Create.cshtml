@@ -15,12 +15,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control" placeholder="Please Enter Name for Event" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <input asp-for="Price" class="form-control" placeholder="Please Enter Exact or Estimated Price for Event"/>
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -28,7 +28,7 @@
                 <input asp-for="StartDate" class="form-control" />
                 <span asp-validation-for="StartDate" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            @*<div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="LegalAge" /> @Html.DisplayNameFor(model => model.LegalAge)
                 </label>
@@ -37,30 +37,30 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="FamilyEvent" /> @Html.DisplayNameFor(model => model.FamilyEvent)
                 </label>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <input asp-for="Description" class="form-control" placeholder="Please Include a Description for Event"/>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="InfoURL" class="control-label"></label>
-                <input asp-for="InfoURL" class="form-control" />
+                <input asp-for="InfoURL" class="form-control" placeholder="Enter a URL for any external information" />
                 <span asp-validation-for="InfoURL" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImageURL" class="control-label"></label>
-                <input asp-for="ImageURL" class="form-control" />
+                <input asp-for="ImageURL" class="form-control" placeholder="Enter a URL for an Event Image" />
                 <span asp-validation-for="ImageURL" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
+                <input asp-for="City" class="form-control" placeholder="Enter City for Event" />
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" />
+                <input asp-for="State" class="form-control" placeholder="Enter State for Event" />
                 <span asp-validation-for="State" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -70,7 +70,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CreatorId" class="control-label"></label>
-                <input asp-for="CreatorId" class="form-control" />
+                <input asp-for="CreatorId" class="form-control"  />
                 <span asp-validation-for="CreatorId" class="text-danger"></span>
             </div>
             <div class="form-group">

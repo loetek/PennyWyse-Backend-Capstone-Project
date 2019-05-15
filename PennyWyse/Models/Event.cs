@@ -14,6 +14,7 @@ namespace PennyWyse.Models
         [Display(Name = "Event Name")]
         public string Name { get; set; }
         [Required]
+
         [Display(Name = "Event Price")]
         public int Price { get; set; }
         [Required]

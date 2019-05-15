@@ -10,7 +10,7 @@
 
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-controller="Events" asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <!-- Page Heading -->
@@ -37,6 +37,7 @@
                             <p> @Html.DisplayFor(modelItem => item.Event.Description)</p>
                             <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.Event.InfoURL)>View Event</a>
                             
+                            @*@if (@PennyWyse.Models.User)*@
                             @*Add some a check for who can and can't edit*@
                             <a asp-action="Edit" asp-route-searchId="@searchId" asp-route-id="@item.UserEventId">Edit</a> |
 
