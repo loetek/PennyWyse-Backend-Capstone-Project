@@ -77,9 +77,9 @@ namespace PennyWyse.Controllers
         // POST: UserEvents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( UserEvent userEvent, int Id)
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create( UserEvent userEvent, int? searchId)
         {
 
             ModelState.Remove("User");
@@ -94,7 +94,7 @@ namespace PennyWyse.Controllers
             {
                 _context.Add(userEvent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new {searchId});
             }
 
             //ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
@@ -180,13 +180,13 @@ namespace PennyWyse.Controllers
         // POST: UserEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, int searchId)
         {
             var userEvent = await _context.UserEvents.FindAsync(id);
             _context.UserEvents.Remove(userEvent);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+            return RedirectToAction("Index", new {searchId});
+    }
 
         private bool UserEventExists(int id)
         {

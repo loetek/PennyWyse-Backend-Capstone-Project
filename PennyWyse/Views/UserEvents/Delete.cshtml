@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.User)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Id)
+            @Html.DisplayFor(model => model.User.FullName)
         </dd class>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Event)
@@ -26,9 +26,9 @@
         </dd class>
     </dl>
     
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="UserEventId" />
-        <input type="submit" value="Delete" class="btn btn-danger" asp-route-searchId="@searchId" /> |
+    <form asp-action="Delete" asp-route-searchId="@searchId">
+        <input type="hidden" asp-for="UserEventId"/>
+        <input type="submit" value="Delete" class="btn btn-danger" asp-action="Delete" asp-route-searchId="@searchId"/> |
         <a asp-action="Index" asp-route-searchId="@searchId">Back to List</a>
     </form>
 </div>
