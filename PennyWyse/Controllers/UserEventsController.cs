@@ -115,8 +115,8 @@ namespace PennyWyse.Controllers
             {
                 return NotFound();
             }
-            ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
+            //ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
+            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
             return View(userEvent);
         }
 
@@ -152,8 +152,8 @@ namespace PennyWyse.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
+            //ViewData["EventId"] = new SelectList(_context.Events, "EventId", "Name", userEvent.EventId);
+            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userEvent.UserId);
             return View(userEvent);
         }
 

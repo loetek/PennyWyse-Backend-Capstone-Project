@@ -116,7 +116,7 @@ namespace PennyWyse.Controllers
                 
                 _context.Add(CreateEvent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new {searchId});
+                return RedirectToAction("Index","UserEvents", new {searchId});
             }
             return View(CreateEvent);
         }
@@ -142,8 +142,9 @@ namespace PennyWyse.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,StartDate,LegalAge,FamilyEvent,Description,InfoURL,ImageURL,City,State,EventType,CreatorId")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EventId,Name,Price,StartDate,LegalAge,FamilyEvent,Description,InfoURL,ImageURL,City,State,EventType,CreatorId")] Event @event, int searchId)
         {
+
             if (id != @event.EventId)
             {
                 return NotFound();
@@ -153,6 +154,10 @@ namespace PennyWyse.Controllers
             {
                 try
                 {
+                    User CurUser = await GetCurrentUserAsync();
+                    @event.User = CurUser;
+                    @event.UserId = CurUser.Id;
+                    @event.CreatorId = CurUser.Id;
                     _context.Update(@event);
                     await _context.SaveChangesAsync();
                 }
@@ -167,7 +172,7 @@ namespace PennyWyse.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","UserEvents", new {searchId});
             }
             return View(@event);
         }
