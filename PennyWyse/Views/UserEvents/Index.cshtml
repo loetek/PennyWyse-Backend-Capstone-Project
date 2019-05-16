@@ -10,7 +10,7 @@
 
 
 <p>
-    <a asp-controller="Events" asp-action="Create">Create New</a>
+    <a asp-controller="Events" asp-route-searchId="@searchId"asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <!-- Page Heading -->
@@ -42,7 +42,7 @@
                             @*This will only allow editing if you are the creator of the event---> JD*@
                             @if (@item.Event.CreatorId == @item.User.Id)
                             {
-                                <a asp-action="Edit" asp-route-searchId="@searchId" asp-route-id="@item.UserEventId">Edit</a> 
+                                <a asp-action="Edit" asp-route-controller="Events" asp-route-searchId="@searchId" asp-route-id="@item.EventId">Edit</a> 
                             }
 
                             <a asp-action="Details" asp-route-searchId="@searchId"  asp-route-id="@item.UserEventId">Details</a> 
