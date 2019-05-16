@@ -99,25 +99,26 @@ namespace PennyWyse.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,StartDate,LegalAge,FamilyEvent,Description,InfoURL,ImageURL,City,State,EventType,CreatorId")] Event UserEvent)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,StartDate,LegalAge,FamilyEvent,Description,InfoURL,ImageURL,City,State,EventType,CreatorId")] Event CreateEvent, int? searchId)
         {
 
             ModelState.Remove("User");
             ModelState.Remove("UserId");
 
             User CurUser = await GetCurrentUserAsync();
-            UserEvent.User = CurUser;
-            UserEvent.UserId = Int32.Parse(CurUser.Id);
+            CreateEvent.User = CurUser;
+            CreateEvent.UserId = CurUser.Id;
+            CreateEvent.CreatorId = CurUser.Id;
 
 
             if (ModelState.IsValid)
             {
                 
-                _context.Add(UserEvent);
+                _context.Add(CreateEvent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new {searchId});
             }
-            return View(UserEvent);
+            return View(CreateEvent);
         }
 
         // GET: Events/Edit/5

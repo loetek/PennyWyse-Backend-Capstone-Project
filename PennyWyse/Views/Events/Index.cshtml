@@ -20,10 +20,8 @@
                     @foreach (var item in Model)
                      {
              <tr>
-                 <!-- Page Content -->
+       
                  <div class="container">
-
-                     <!-- Project One -->
                      <div class="row">
                          <div class="col-md-7">
                              <a href=" @Html.DisplayFor(modelItem => item.InfoURL)">
@@ -35,15 +33,23 @@
                              <h4> $ @Html.DisplayFor(modelItem => item.Price)</h4>
                              <p> @Html.DisplayFor(modelItem => item.Description)</p>
 
-                             <form asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents">
-                                 <input type="hidden" value="@item.EventId" name="EventId"/>
-                                 <div class="form-group">
-                                     <input type="submit" value="Add Event" class="btn btn-primary" asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents"/>
 
-                                     <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.InfoURL)>View Website</a>
-                                 </div>
-                             </form>
-                         </div>
+                             @*This will check to make sure that the event is not already in the User's list of events---> JD*@
+
+                             @*@if (@item.EventId)
+                             {*@
+
+                                 <form asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents">
+                                     <input type="hidden" value="@item.EventId" name="EventId" />
+                                     <div class="form-group">
+                                         <input type="submit" value="Add Event" class="btn btn-primary" asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents" />
+
+                                     </div>
+                                 </form>
+                             @*}*@
+
+                                 <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.InfoURL)>View Website</a>
+                             </div>
                      </div>
                  <hr />
                  </div>
