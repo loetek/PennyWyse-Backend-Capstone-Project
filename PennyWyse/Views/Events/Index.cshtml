@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PennyWyse.Models.Event>
+﻿@model PennyWyse.Models.ViewModels.UserEventViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -17,7 +17,7 @@
 
         searchId = "0";
 
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.EventList)
                      {
              <tr>
        
@@ -35,6 +35,9 @@
 
 
                              @*This will check to make sure that the event is not already in the User's list of events---> JD*@
+                             
+                             
+                             @foreach(var )
 
                              @*@if (@item.EventId)
                              {*@
