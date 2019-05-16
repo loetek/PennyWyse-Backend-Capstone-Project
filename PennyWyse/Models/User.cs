@@ -17,21 +17,14 @@ namespace PennyWyse.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        [Display(Name = "Family Event")]
-        public bool Family { get; set; }
+        [Display(Name = "City")]
+        public string City { get; set; }
 
-        [Required]
-        [Display(Name = "Legal Age")]
-        public bool LegalAge { get; set; }
+        [Display(Name = "State")]
+        public string State { get; set; }
 
         [Display(Name = "Photo URL")]
         public string ProfileImageURL { get; set; }
-
-        [Display(Name = "City")]
-        public string City { get; set; }
-        [Display(Name = "State")]
-        public string State { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
 

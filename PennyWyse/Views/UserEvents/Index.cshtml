@@ -37,11 +37,15 @@
                             <p> @Html.DisplayFor(modelItem => item.Event.Description)</p>
                             <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.Event.InfoURL)>View Event</a>
                             
-                            @*@if (@PennyWyse.Models.User)*@
-                            @*Add some a check for who can and can't edit*@
-                            <a asp-action="Edit" asp-route-searchId="@searchId" asp-route-id="@item.UserEventId">Edit</a> |
+                       
+                  
+                            @*This will only allow editing if you are the creator of the event---> JD*@
+                            @if (@item.Event.CreatorId == @item.User.Id)
+                            {
+                                <a asp-action="Edit" asp-route-searchId="@searchId" asp-route-id="@item.UserEventId">Edit</a> 
+                            }
 
-                            <a asp-action="Details" asp-route-searchId="@searchId"  asp-route-id="@item.UserEventId">Details</a> |
+                            <a asp-action="Details" asp-route-searchId="@searchId"  asp-route-id="@item.UserEventId">Details</a> 
                             <a asp-action="Delete" asp-route-searchId="@searchId" asp-route-id="@item.UserEventId">Delete</a>
 
                         </div>

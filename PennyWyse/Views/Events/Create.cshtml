@@ -14,64 +14,55 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" placeholder="Please Enter Name for Event" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="@Model." class="control-label"></label>
+                <input asp-for="@Model.Name" class="form-control" placeholder="Please Enter Name for Event" />
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" placeholder="Please Enter Exact or Estimated Price for Event"/>
-                <span asp-validation-for="Price" class="text-danger"></span>
+                <label asp-for="@Model.Price" class="control-label"></label>
+                <input asp-for="@Model.Price" class="form-control" placeholder="Please Enter Exact or Estimated Price for Event"/>
+                <span asp-validation-for="@Model.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" class="form-control" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
+                <label asp-for="@Model.StartDate" class="control-label"></label>
+                <input asp-for="@Model.StartDate" class="form-control" />
+                <span asp-validation-for="@Model.StartDate" class="text-danger"></span>
             </div>
-            @*<div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="LegalAge" /> @Html.DisplayNameFor(model => model.LegalAge)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="FamilyEvent" /> @Html.DisplayNameFor(model => model.FamilyEvent)
-                </label>
-            </div>*@
+          
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" placeholder="Please Include a Description for Event"/>
-                <span asp-validation-for="Description" class="text-danger"></span>
+                <label asp-for="@Model.Description" class="control-label"></label>
+                <input asp-for="@Model.Description" class="form-control" placeholder="Please Include a Description for Event"/>
+                <span asp-validation-for="@Model.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InfoURL" class="control-label"></label>
-                <input asp-for="InfoURL" class="form-control" placeholder="Enter a URL for any external information" />
-                <span asp-validation-for="InfoURL" class="text-danger"></span>
+                <label asp-for="@Model.InfoURL" class="control-label"></label>
+                <input asp-for="@Model.InfoURL" class="form-control" placeholder="Enter a URL for any external information" />
+                <span asp-validation-for="@Model.InfoURL" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageURL" class="control-label"></label>
-                <input asp-for="ImageURL" class="form-control" placeholder="Enter a URL for an Event Image" />
-                <span asp-validation-for="ImageURL" class="text-danger"></span>
+                <label asp-for="@Model.ImageURL" class="control-label"></label>
+                <input asp-for="@Model.ImageURL" class="form-control" placeholder="Enter a URL for an Event Image" />
+                <span asp-validation-for="@Model.ImageURL" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" placeholder="Enter City for Event" />
-                <span asp-validation-for="City" class="text-danger"></span>
+                <label asp-for="@Model.City" class="control-label"></label>
+                <input asp-for="@Model.City" class="form-control" placeholder="Enter City for Event" />
+                <span asp-validation-for="@Model.City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" placeholder="Enter State for Event" />
-                <span asp-validation-for="State" class="text-danger"></span>
+                <label asp-for="@Model.State" class="control-label"></label>
+                <input asp-for="@Model.State" class="form-control" placeholder="Enter State for Event" />
+                <span asp-validation-for="@Model.State" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EventType" class="control-label"></label>
-                <input asp-for="EventType" class="form-control" />
-                <span asp-validation-for="EventType" class="text-danger"></span>
+                <label asp-for="@Model.EventType" class="control-label"></label>
+                <input asp-for="@Model.EventType" class="form-control" />
+                <span asp-validation-for="@Model.EventType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatorId" class="control-label"></label>
-                <input asp-for="CreatorId" class="form-control"  />
-                <span asp-validation-for="CreatorId" class="text-danger"></span>
+                @*<label asp-for="@Model.CreatorId" class="control-label"></label>*@
+                <input type="hidden"asp-for="@Model.CreatorId" class="form-control"  />
+                <span asp-validation-for="@Model.CreatorId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

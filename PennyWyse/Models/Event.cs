@@ -10,20 +10,19 @@ namespace PennyWyse.Models
     {
         [Required]
         public int EventId { get; set; }
+
         [Required]
         [Display(Name = "Event Name")]
         public string Name { get; set; }
-        [Required]
 
+        [Required]
         [Display(Name = "Event Price")]
         public int Price { get; set; }
+
         [Required]
         [Display(Name = "Event Start Date")]
         public DateTime StartDate { get; set; }
-        [Display(Name = "Legal Age")]
-        public bool LegalAge { get; set; }
-        [Display(Name = "Family Friendly")]
-        public bool FamilyEvent { get; set; }
+
         [Display(Name = "Event Description")]
         public string Description { get; set; }
         [Display(Name = "More Info URL")]
@@ -37,9 +36,9 @@ namespace PennyWyse.Models
         [Display(Name = "Event Type")]
         public string EventType { get; set; }
         [Display(Name = "Creator")]
-        public int? CreatorId { get; set; }
+        public string CreatorId { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
 
 

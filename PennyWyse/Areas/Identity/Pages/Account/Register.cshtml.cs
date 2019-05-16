@@ -66,19 +66,15 @@ namespace PennyWyse.Areas.Identity.Pages.Account
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
 
-            [Required]
-            [Display(Name = "Are you looking for family events?")]
-            public bool Family { get; set; }
-
-            [Required]
-            [Display(Name = "Are you looking for 21 and over events?")]
-            public bool LegalAge { get; set; }
-         
             [Display(Name = "City")]
             public string City { get; set; }
 
             [Display(Name = "State")]
             public string State { get; set; }
+
+            [Display(Name = "Profile Image URL")]
+            public string ProfileImageURL { get; set; }
+
 
 
 
@@ -95,7 +91,7 @@ namespace PennyWyse.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Email, Email = Input.Email };
+                var user = new User { UserName = Input.Email, Email = Input.Email, ProfileImageURL = Input.ProfileImageURL, FirstName = Input.FirstName, LastName = Input.LastName, City = Input.City, State = Input.State};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

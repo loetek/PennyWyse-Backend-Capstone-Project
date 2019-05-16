@@ -29,16 +29,7 @@
                 <input asp-for="Event.StartDate" class="form-control" />
                 <span asp-validation-for="Event.StartDate" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Event.LegalAge" /> @Html.DisplayNameFor(model => model.Event.LegalAge)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Event.FamilyEvent" /> @Html.DisplayNameFor(model => model.Event.FamilyEvent)
-                </label>
-            </div>
+         
             <div class="form-group">
                 <label asp-for="Event.Description" class="control-label"></label>
                 <input asp-for="Event.Description" class="form-control" />

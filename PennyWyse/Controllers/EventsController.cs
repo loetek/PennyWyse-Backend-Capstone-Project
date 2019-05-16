@@ -38,10 +38,16 @@ namespace PennyWyse.Controllers
         [Authorize]
         public async Task<IActionResult> Index(HomeIndexViewModel UserChoice, int? searchId)
         {   
-        
+            
+
             if (searchId == null)
             {
-                return NotFound();
+                searchId = 0;
+                var PriceObject = _context.Events
+                    .Where(e => e.Price <= searchId);
+
+
+                return View(PriceObject);
             }
             else
             {
@@ -93,15 +99,26 @@ namespace PennyWyse.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,StartDate,LegalAge,FamilyEvent,Description,InfoURL,ImageURL,City,State,EventType,CreatorId")] Event @event)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,StartDate,LegalAge,FamilyEvent,Description,InfoURL,ImageURL,City,State,EventType,CreatorId")] Event CreateEvent, int? searchId)
         {
+
+            ModelState.Remove("User");
+            ModelState.Remove("UserId");
+
+            User CurUser = await GetCurrentUserAsync();
+            CreateEvent.User = CurUser;
+            CreateEvent.UserId = CurUser.Id;
+            CreateEvent.CreatorId = CurUser.Id;
+
+
             if (ModelState.IsValid)
             {
-                _context.Add(@event);
+                
+                _context.Add(CreateEvent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new {searchId});
             }
-            return View(@event);
+            return View(CreateEvent);
         }
 
         // GET: Events/Edit/5
