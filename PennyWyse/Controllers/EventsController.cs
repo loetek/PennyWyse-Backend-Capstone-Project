@@ -38,7 +38,6 @@ namespace PennyWyse.Controllers
         [Authorize]
         public async Task<IActionResult> Index(HomeIndexViewModel UserChoice, int? searchId)
         {   
-            
 
             if (searchId == null)
             {
@@ -59,15 +58,7 @@ namespace PennyWyse.Controllers
             }
         }
 
-        // This method ties to the search bar on the landing page that will search via the price only. 
-        //public async Task<IActionResult> IndexPrice(int? UserPrice)
-        //{
-        //    var PriceObject = _context.Events
-        //        .Where(e => e.Price < UserPrice);
-
-        //    return View(PriceObject);
-
-        //}
+      
 
 
         // GET: Events/Details/5
@@ -193,12 +184,12 @@ namespace PennyWyse.Controllers
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, int searchId)
         {
             var @event = await _context.Events.FindAsync(id);
             _context.Events.Remove(@event);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", new {searchId});
         }
 
         private bool EventExists(int id)
