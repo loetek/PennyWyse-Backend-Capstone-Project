@@ -17,7 +17,7 @@ There are many applications and organazations that focus on different methods fo
 
 ## Installing
 
-Clone repo using git clone 
+Clone repo using git clone git@github.com:loetek/PennyWyse-Backend-Capstone-Project.git
 open Virtual Studio and run PennyWyse
 Create a new account and login.
 
@@ -34,7 +34,6 @@ Feel free to use any features available.
   * Add a dashboard for total costs based on calendar.
   * Map the locations that the event will be held.
   
- 
 
 ## Built With
 
