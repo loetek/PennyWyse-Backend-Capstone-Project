@@ -1,9 +1,7 @@
-# PennyWyse-Backend-Capstone-Project
-Backend project. 
 
 # Project Title
 
-### PennyWyser
+### PennyWyse
 
 ## General Information
 
