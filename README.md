@@ -13,40 +13,34 @@ Final MVP Approval May 16th.
 
 ## Purpose 
 
-I wrote this app because in my life I have been in both situations. As a student I hated to ask for the daily agenda or to ask the instructor to repeat themselves. And as a manager/instructor I found that there is an incredible amount of time wasted on reptetive tasks like these.
-
+There are many applications and organazations that focus on different methods for event search I wanted to pair down the process to it's most basic form and only use price as a determining factor. The application is written in C# ASP .NET all the data is seeded via a migration and I used entity framework for scaffolding and relational mapping. 
 
 ## Installing
 
-1. Clone repository
-2. Cd src
+Clone repo using git clone 
+open Virtual Studio and run PennyWyse
+Create a new account and login.
 
 
 ### Testing
 
-
-
-
-
+Feel free to use any features available.
 
 
 ## Updates
+
+#V2 
+  * I want to implement external API calls that will bring in live curated data samples.
+  * Add a dashboard for total costs based on calendar.
+  * Map the locations that the event will be held.
   
  
- 
- ### New Features
- 
-
- * 
 
 ## Built With
 
-* React.js - The JS Library used.
-* jQuery - For some additional jQuery flexibility.
-* [ReactStrap](https://reactstrap.github.io/) - Styling
-* [NPM](https://www.npmjs.com/) - Used for loading dependencies and some additional tools.
-* [Chart.js](https://www.chartjs.org/) - Used for all charts used in the dashboards.
-* [Moment.js](http://momentjs.com/) - Used for all time related formatting.
+* C# .NET ASP Core
+* Entity Framework - Used for the ORM.
+* Bootstrap - Used for styling.
 
 ## Authors
 
