@@ -5,7 +5,7 @@
 
 ## General Information
 
-This is my final Back End Capstone project with NSS. The app is designed to simplfiy the event search process by focusing on only one search filter/ paremeter, cost.
+This is my final Back End Capstone project with NSS. The app is designed to simplfiy the event search process by focusing on only one search filter/ paremeter and that parameter is cost.
 
 Final MVP Approval May 16th.
 
