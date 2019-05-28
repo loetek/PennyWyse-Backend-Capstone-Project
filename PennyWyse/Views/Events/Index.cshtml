@@ -39,18 +39,18 @@
                              @*@if (@item.EventId)
                              {*@
 
-                                 <form asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents">
-                                     <input type="hidden" value="@item.EventId" name="EventId" />
-                                     <div class="form-group">
-                                         <input type="submit" value="Add Event" class="btn btn-primary" asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents" />
+                             <form asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents">
+                                 <input type="hidden" value="@item.EventId" name="EventId" />
+                                 <div class="form-group">
+                                 <input type="submit" value="Add Event" class="btn btn-primary" style="background-color: #2C5364; border-color:#2c5364" asp-action="Create" asp-route-searchId="@searchId" asp-controller="UserEvents" />
 
-                                     </div>
-                                 </form>
+                                 </div>
+                             </form>
                              @*}*@
-
-                                 <a class="btn btn-primary" href=@Html.DisplayFor(modelItem => item.InfoURL)>View Website</a>
-                             </div>
+                             <a class="btn btn-primary" style="background-color: #2C5364; border-color:#2c5364" href=@Html.DisplayFor(modelItem => item.InfoURL)>View Website</a>
+                         </div>
                      </div>
+                 <hr />
                  <hr />
                  </div>
 
@@ -92,8 +92,7 @@
              </tr>
          }
     }
-    
-    
+ 
 
     </tbody>
     

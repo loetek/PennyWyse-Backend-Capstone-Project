@@ -65,14 +65,14 @@
                 <span asp-validation-for="@Model.CreatorId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" asp-route-searchId="@searchId" />
+                <input type="submit" value="Create" class="btn btn-primary" style="background-color: #2C5364; border-color:#2c5364"  asp-route-searchId="@searchId" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index" asp-route-searchId="@searchId">Back to List</a>
+    <a class="btn btn-primary" style="background-color: #2C5364; border-color:#2c5364" asp-action="Index" asp-route-searchId="@searchId">Back to List</a>
 </div>
 
 @section Scripts {
