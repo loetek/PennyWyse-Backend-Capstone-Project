@@ -16,7 +16,7 @@
                 <form method="get">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <input asp-for="@Model.PriceSearch" name ="searchId" class="form-control"/>
+                        <input type="number" asp-for="@Model.PriceSearch" name ="searchId" class="form-control"/>
                         <span asp-validation-for="@Model.PriceSearch" class="text-danger"></span>
                     </div>
                     <div class="form-group">
