@@ -14,7 +14,7 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="@Model." class="control-label"></label>
+                <label asp-for="@Model.Name" class="control-label"></label>
                 <input asp-for="@Model.Name" class="form-control" placeholder="Please Enter Name for Event" />
                 <span asp-validation-for="@Model.Name" class="text-danger"></span>
             </div>
